@@ -1,3 +1,16 @@
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #fefefe;
+  color: #000000;
+}
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+code {
+  font-family: 'Roboto Mono', monospace;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;
