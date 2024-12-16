@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Genotype Data | GWAS Tutorial</title>
+  <meta name="description" content="A guide to GWAS analysis in rice, using the R and PLINK programs" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Genotype Data | GWAS Tutorial" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://www.tidytextmining.com/images/cover.png" />
+  <meta property="og:description" content="A guide to GWAS analysis in rice, using the R and PLINK programs" />
+  <meta name="github-repo" content="dgrtwo/tidy-text-mining" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Genotype Data | GWAS Tutorial" />
+  
+  <meta name="twitter:description" content="A guide to GWAS analysis in rice, using the R and PLINK programs" />
+  <meta name="twitter:image" content="https://www.tidytextmining.com/images/cover.png" />
+
+<meta name="author" content="Yen-Hsiang (Teddy) Huang" />
+
+
+<meta name="date" content="2024-12-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="preface.html"/>
+<link rel="next" href="sentiment.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">GWAS for Anaerobic Germination in Rice</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to GWAS Tutorial</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#outline"><i class="fa fa-check"></i>Outline</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#about-this-book"><i class="fa fa-check"></i>About this book</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#using-code-examples"><i class="fa fa-check"></i>Using code examples</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="tidytext.html"><a href="tidytext.html"><i class="fa fa-check"></i><b>1</b> Genotype Data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="tidytext.html"><a href="tidytext.html#download-rice-snp-data-from-snp-seek-3k-rg"><i class="fa fa-check"></i><b>1.1</b> <strong>Download Rice SNP data from SNP-Seek (3K RG)</strong></a></li>
+<li class="chapter" data-level="1.2" data-path="tidytext.html"><a href="tidytext.html#align-accession-ids"><i class="fa fa-check"></i><b>1.2</b> <strong>Align Accession IDs</strong></a></li>
+<li class="chapter" data-level="1.3" data-path="tidytext.html"><a href="tidytext.html#tidyausten"><i class="fa fa-check"></i><b>1.3</b> <strong>SNP Data Processing and Quality Control</strong></a></li>
+<li class="chapter" data-level="1.4" data-path="tidytext.html"><a href="tidytext.html#generate-final-genotypic-dataset"><i class="fa fa-check"></i><b>1.4</b> <strong>Generate Final Genotypic Dataset</strong></a></li>
+<li class="chapter" data-level="1.5" data-path="tidytext.html"><a href="tidytext.html#summary"><i class="fa fa-check"></i><b>1.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sentiment.html"><a href="sentiment.html"><i class="fa fa-check"></i><b>2</b> Phenotype Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="sentiment.html"><a href="sentiment.html#the-sentiments-datasets"><i class="fa fa-check"></i><b>2.1</b> The <code>sentiments</code> datasets</a></li>
+<li class="chapter" data-level="2.2" data-path="sentiment.html"><a href="sentiment.html#sentiment-analysis-with-inner-join"><i class="fa fa-check"></i><b>2.2</b> Sentiment analysis with inner join</a></li>
+<li class="chapter" data-level="2.3" data-path="sentiment.html"><a href="sentiment.html#comparing-the-three-sentiment-dictionaries"><i class="fa fa-check"></i><b>2.3</b> Comparing the three sentiment dictionaries</a></li>
+<li class="chapter" data-level="2.4" data-path="sentiment.html"><a href="sentiment.html#most-positive-negative"><i class="fa fa-check"></i><b>2.4</b> Most common positive and negative words</a></li>
+<li class="chapter" data-level="2.5" data-path="sentiment.html"><a href="sentiment.html#wordclouds"><i class="fa fa-check"></i><b>2.5</b> Wordclouds</a></li>
+<li class="chapter" data-level="2.6" data-path="sentiment.html"><a href="sentiment.html#looking-at-units-beyond-just-words"><i class="fa fa-check"></i><b>2.6</b> Looking at units beyond just words</a></li>
+<li class="chapter" data-level="2.7" data-path="sentiment.html"><a href="sentiment.html#summary-1"><i class="fa fa-check"></i><b>2.7</b> Summary</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GWAS Tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tidytext" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Genotype Data<a href="tidytext.html#tidytext" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ol style="list-style-type: decimal">
+<li><p><strong>Download Rice SNP data from SNP-Seek (3K RG):</strong> We utilized the 3K RG 18 million Base SNP Dataset and the 3K RG 404k Core SNP Dataset.</p></li>
+<li><p><strong>Align Accession IDs:</strong> Match the accession IDs between the phenotypic and SNP datasets.</p></li>
+<li><p><strong>SNP Data Processing and Quality Control:</strong> Perform data generation and quality control on the SNP data for the subset of 311 samples.</p></li>
+<li><p><strong>Generate Final Genotypic Dataset:</strong> Prepare the final genotypic dataset for GWAS analysis.</p></li>
+</ol>
+<div id="download-rice-snp-data-from-snp-seek-3k-rg" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> <strong>Download Rice SNP data from SNP-Seek (3K RG)</strong><a href="tidytext.html#download-rice-snp-data-from-snp-seek-3k-rg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As we stated above, we define the tidy text format as being a table with <strong>one-token-per-row.</strong> Structuring text data in this way means that it conforms to tidy data principles and can be manipulated with a set of consistent tools. This is worth contrasting with the ways text is often stored in text mining approaches.</p>
+<ul>
+<li><strong>String</strong>: Text can, of course, be stored as strings, i.e., character vectors, within R, and often text data is first read into memory in this form.</li>
+<li><strong>Corpus</strong>: These types of objects typically contain raw strings annotated with additional metadata and details.</li>
+<li><strong>Document-term matrix</strong>: This is a sparse matrix describing a collection (i.e., a corpus) of documents with one row for each document and one column for each term. The value in the matrix is typically word count or tf-idf (see Chapter <a href="#tfidf"><strong>??</strong></a>).</li>
+</ul>
+<p>Let’s hold off on exploring corpus and document-term matrix objects until Chapter <a href="#dtm"><strong>??</strong></a>, and get down to the basics of converting text to a tidy format.</p>
+</div>
+<div id="align-accession-ids" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> <strong>Align Accession IDs</strong><a href="tidytext.html#align-accession-ids" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Emily Dickinson wrote some lovely text in her time.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tidytext.html#cb1-1" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Because I could not stop for Death -&quot;</span>,</span>
+<span id="cb1-2"><a href="tidytext.html#cb1-2" tabindex="-1"></a>          <span class="st">&quot;He kindly stopped for me -&quot;</span>,</span>
+<span id="cb1-3"><a href="tidytext.html#cb1-3" tabindex="-1"></a>          <span class="st">&quot;The Carriage held but just Ourselves -&quot;</span>,</span>
+<span id="cb1-4"><a href="tidytext.html#cb1-4" tabindex="-1"></a>          <span class="st">&quot;and Immortality&quot;</span>)</span>
+<span id="cb1-5"><a href="tidytext.html#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="tidytext.html#cb1-6" tabindex="-1"></a>text</span>
+<span id="cb1-7"><a href="tidytext.html#cb1-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Because I could not stop for Death -&quot;  </span></span>
+<span id="cb1-8"><a href="tidytext.html#cb1-8" tabindex="-1"></a><span class="co">#&gt; [2] &quot;He kindly stopped for me -&quot;            </span></span>
+<span id="cb1-9"><a href="tidytext.html#cb1-9" tabindex="-1"></a><span class="co">#&gt; [3] &quot;The Carriage held but just Ourselves -&quot;</span></span>
+<span id="cb1-10"><a href="tidytext.html#cb1-10" tabindex="-1"></a><span class="co">#&gt; [4] &quot;and Immortality&quot;</span></span></code></pre></div>
+<p>This is a typical character vector that we might want to analyze. In order to turn it into a tidy text dataset, we first need to put it into a data frame.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tidytext.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="tidytext.html#cb2-2" tabindex="-1"></a>text_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">line =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">text =</span> text)</span>
+<span id="cb2-3"><a href="tidytext.html#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="tidytext.html#cb2-4" tabindex="-1"></a>text_df</span>
+<span id="cb2-5"><a href="tidytext.html#cb2-5" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 2</span></span>
+<span id="cb2-6"><a href="tidytext.html#cb2-6" tabindex="-1"></a><span class="co">#&gt;    line text                                  </span></span>
+<span id="cb2-7"><a href="tidytext.html#cb2-7" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;                                 </span></span>
+<span id="cb2-8"><a href="tidytext.html#cb2-8" tabindex="-1"></a><span class="co">#&gt; 1     1 Because I could not stop for Death -  </span></span>
+<span id="cb2-9"><a href="tidytext.html#cb2-9" tabindex="-1"></a><span class="co">#&gt; 2     2 He kindly stopped for me -            </span></span>
+<span id="cb2-10"><a href="tidytext.html#cb2-10" tabindex="-1"></a><span class="co">#&gt; 3     3 The Carriage held but just Ourselves -</span></span>
+<span id="cb2-11"><a href="tidytext.html#cb2-11" tabindex="-1"></a><span class="co">#&gt; 4     4 and Immortality</span></span></code></pre></div>
+<p>What does it mean that this data frame has printed out as a “tibble”? A tibble is a modern class of data frame within R, available in the dplyr and tibble packages, that has a convenient print method, will not convert strings to factors, and does not use row names. Tibbles are great for use with tidy tools.</p>
+<p>Notice that this data frame containing text isn’t yet compatible with tidy text analysis, though. We can’t filter out words or count which occur most frequently, since each row is made up of multiple combined words. We need to convert this so that it has <strong>one-token-per-document-per-row</strong>.</p>
+<div class="rmdnote">
+<p>
+A token is a meaningful unit of text, most often a word, that we are
+interested in using for further analysis, and tokenization is the
+process of splitting text into tokens.
+</p>
+</div>
+<p>In this first example, we only have one document (the poem), but we will explore examples with multiple documents soon.</p>
+<p>Within our tidy text framework, we need to both break the text into individual tokens (a process called <em>tokenization</em>) <em>and</em> transform it to a tidy data structure. To do this, we use tidytext’s <code>unnest_tokens()</code> function.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tidytext.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb3-2"><a href="tidytext.html#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="tidytext.html#cb3-3" tabindex="-1"></a>text_df <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="tidytext.html#cb3-4" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
+<span id="cb3-5"><a href="tidytext.html#cb3-5" tabindex="-1"></a><span class="co">#&gt; # A tibble: 20 × 2</span></span>
+<span id="cb3-6"><a href="tidytext.html#cb3-6" tabindex="-1"></a><span class="co">#&gt;     line word   </span></span>
+<span id="cb3-7"><a href="tidytext.html#cb3-7" tabindex="-1"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;  </span></span>
+<span id="cb3-8"><a href="tidytext.html#cb3-8" tabindex="-1"></a><span class="co">#&gt;  1     1 because</span></span>
+<span id="cb3-9"><a href="tidytext.html#cb3-9" tabindex="-1"></a><span class="co">#&gt;  2     1 i      </span></span>
+<span id="cb3-10"><a href="tidytext.html#cb3-10" tabindex="-1"></a><span class="co">#&gt;  3     1 could  </span></span>
+<span id="cb3-11"><a href="tidytext.html#cb3-11" tabindex="-1"></a><span class="co">#&gt;  4     1 not    </span></span>
+<span id="cb3-12"><a href="tidytext.html#cb3-12" tabindex="-1"></a><span class="co">#&gt;  5     1 stop   </span></span>
+<span id="cb3-13"><a href="tidytext.html#cb3-13" tabindex="-1"></a><span class="co">#&gt;  6     1 for    </span></span>
+<span id="cb3-14"><a href="tidytext.html#cb3-14" tabindex="-1"></a><span class="co">#&gt;  7     1 death  </span></span>
+<span id="cb3-15"><a href="tidytext.html#cb3-15" tabindex="-1"></a><span class="co">#&gt;  8     2 he     </span></span>
+<span id="cb3-16"><a href="tidytext.html#cb3-16" tabindex="-1"></a><span class="co">#&gt;  9     2 kindly </span></span>
+<span id="cb3-17"><a href="tidytext.html#cb3-17" tabindex="-1"></a><span class="co">#&gt; 10     2 stopped</span></span>
+<span id="cb3-18"><a href="tidytext.html#cb3-18" tabindex="-1"></a><span class="co">#&gt; # ℹ 10 more rows</span></span></code></pre></div>
+<p>dard set of tidy tools, namely dplyr, tidyr, and ggplot2, as shown in Figure <a href="tidytext.html#fig:tidyflow-ch1">1.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tidyflow-ch1"></span>
+<img src="images/tmwr_0101.png" alt="A flowchart of a typical text analysis using tidy data principles. This chapter shows how to summarize and visualize text using these tools." width="100%" />
+<p class="caption">
+Figure 1.1: A flowchart of a typical text analysis using tidy data principles. This chapter shows how to summarize and visualize text using these tools.
+</p>
+</div>
+</div>
+<div id="tidyausten" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> <strong>SNP Data Processing and Quality Control</strong><a href="tidytext.html#tidyausten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s use the text of Jane Austen’s 6 completed, published novels from the <a href="https://cran.r-project.org/package=janeaustenr">janeaustenr</a> package <span class="citation">(<a href="#ref-R-janeaustenr">Silge 2016</a>)</span>, and transform them into a tidy format. The janeaustenr package provides these texts in a one-row-per-line format, where a line in this context is analogous to a literal printed line in a physical book. Let’s start with that, and also use <code>mutate()</code> to annotate a <code>linenumber</code> quantity to keep track of lines in the original format and a <code>chapter</code> (using a regex) to find where all the chapters are.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tidytext.html#cb4-1" tabindex="-1"></a><span class="fu">library</span>(janeaustenr)</span>
+<span id="cb4-2"><a href="tidytext.html#cb4-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="tidytext.html#cb4-3" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb4-4"><a href="tidytext.html#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="tidytext.html#cb4-5" tabindex="-1"></a>original_books <span class="ot">&lt;-</span> <span class="fu">austen_books</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="tidytext.html#cb4-6" tabindex="-1"></a>  <span class="fu">group_by</span>(book) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="tidytext.html#cb4-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">linenumber =</span> <span class="fu">row_number</span>(),</span>
+<span id="cb4-8"><a href="tidytext.html#cb4-8" tabindex="-1"></a>         <span class="at">chapter =</span> <span class="fu">cumsum</span>(<span class="fu">str_detect</span>(text, </span>
+<span id="cb4-9"><a href="tidytext.html#cb4-9" tabindex="-1"></a>                                     <span class="fu">regex</span>(<span class="st">&quot;^chapter [</span><span class="sc">\\</span><span class="st">divxlc]&quot;</span>,</span>
+<span id="cb4-10"><a href="tidytext.html#cb4-10" tabindex="-1"></a>                                           <span class="at">ignore_case =</span> <span class="cn">TRUE</span>)))) <span class="sc">%&gt;%</span></span>
+<span id="cb4-11"><a href="tidytext.html#cb4-11" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb4-12"><a href="tidytext.html#cb4-12" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="tidytext.html#cb4-13" tabindex="-1"></a>original_books</span>
+<span id="cb4-14"><a href="tidytext.html#cb4-14" tabindex="-1"></a><span class="co">#&gt; # A tibble: 73,422 × 4</span></span>
+<span id="cb4-15"><a href="tidytext.html#cb4-15" tabindex="-1"></a><span class="co">#&gt;    text                    book                linenumber chapter</span></span>
+<span id="cb4-16"><a href="tidytext.html#cb4-16" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;                   &lt;fct&gt;                    &lt;int&gt;   &lt;int&gt;</span></span>
+<span id="cb4-17"><a href="tidytext.html#cb4-17" tabindex="-1"></a><span class="co">#&gt;  1 &quot;SENSE AND SENSIBILITY&quot; Sense &amp; Sensibility          1       0</span></span>
+<span id="cb4-18"><a href="tidytext.html#cb4-18" tabindex="-1"></a><span class="co">#&gt;  2 &quot;&quot;                      Sense &amp; Sensibility          2       0</span></span>
+<span id="cb4-19"><a href="tidytext.html#cb4-19" tabindex="-1"></a><span class="co">#&gt;  3 &quot;by Jane Austen&quot;        Sense &amp; Sensibility          3       0</span></span>
+<span id="cb4-20"><a href="tidytext.html#cb4-20" tabindex="-1"></a><span class="co">#&gt;  4 &quot;&quot;                      Sense &amp; Sensibility          4       0</span></span>
+<span id="cb4-21"><a href="tidytext.html#cb4-21" tabindex="-1"></a><span class="co">#&gt;  5 &quot;(1811)&quot;                Sense &amp; Sensibility          5       0</span></span>
+<span id="cb4-22"><a href="tidytext.html#cb4-22" tabindex="-1"></a><span class="co">#&gt;  6 &quot;&quot;                      Sense &amp; Sensibility          6       0</span></span>
+<span id="cb4-23"><a href="tidytext.html#cb4-23" tabindex="-1"></a><span class="co">#&gt;  7 &quot;&quot;                      Sense &amp; Sensibility          7       0</span></span>
+<span id="cb4-24"><a href="tidytext.html#cb4-24" tabindex="-1"></a><span class="co">#&gt;  8 &quot;&quot;                      Sense &amp; Sensibility          8       0</span></span>
+<span id="cb4-25"><a href="tidytext.html#cb4-25" tabindex="-1"></a><span class="co">#&gt;  9 &quot;&quot;                      Sense &amp; Sensibility          9       0</span></span>
+<span id="cb4-26"><a href="tidytext.html#cb4-26" tabindex="-1"></a><span class="co">#&gt; 10 &quot;CHAPTER 1&quot;             Sense &amp; Sensibility         10       1</span></span>
+<span id="cb4-27"><a href="tidytext.html#cb4-27" tabindex="-1"></a><span class="co">#&gt; # ℹ 73,412 more rows</span></span></code></pre></div>
+<p>To work with this as a tidy dataset, we need to restructure it in the <strong>one-token-per-row</strong> format, which as we saw earlier is done with the <code>unnest_tokens()</code> function.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tidytext.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb5-2"><a href="tidytext.html#cb5-2" tabindex="-1"></a>tidy_books <span class="ot">&lt;-</span> original_books <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="tidytext.html#cb5-3" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
+<span id="cb5-4"><a href="tidytext.html#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="tidytext.html#cb5-5" tabindex="-1"></a>tidy_books</span>
+<span id="cb5-6"><a href="tidytext.html#cb5-6" tabindex="-1"></a><span class="co">#&gt; # A tibble: 725,055 × 4</span></span>
+<span id="cb5-7"><a href="tidytext.html#cb5-7" tabindex="-1"></a><span class="co">#&gt;    book                linenumber chapter word       </span></span>
+<span id="cb5-8"><a href="tidytext.html#cb5-8" tabindex="-1"></a><span class="co">#&gt;    &lt;fct&gt;                    &lt;int&gt;   &lt;int&gt; &lt;chr&gt;      </span></span>
+<span id="cb5-9"><a href="tidytext.html#cb5-9" tabindex="-1"></a><span class="co">#&gt;  1 Sense &amp; Sensibility          1       0 sense      </span></span>
+<span id="cb5-10"><a href="tidytext.html#cb5-10" tabindex="-1"></a><span class="co">#&gt;  2 Sense &amp; Sensibility          1       0 and        </span></span>
+<span id="cb5-11"><a href="tidytext.html#cb5-11" tabindex="-1"></a><span class="co">#&gt;  3 Sense &amp; Sensibility          1       0 sensibility</span></span>
+<span id="cb5-12"><a href="tidytext.html#cb5-12" tabindex="-1"></a><span class="co">#&gt;  4 Sense &amp; Sensibility          3       0 by         </span></span>
+<span id="cb5-13"><a href="tidytext.html#cb5-13" tabindex="-1"></a><span class="co">#&gt;  5 Sense &amp; Sensibility          3       0 jane       </span></span>
+<span id="cb5-14"><a href="tidytext.html#cb5-14" tabindex="-1"></a><span class="co">#&gt;  6 Sense &amp; Sensibility          3       0 austen     </span></span>
+<span id="cb5-15"><a href="tidytext.html#cb5-15" tabindex="-1"></a><span class="co">#&gt;  7 Sense &amp; Sensibility          5       0 1811       </span></span>
+<span id="cb5-16"><a href="tidytext.html#cb5-16" tabindex="-1"></a><span class="co">#&gt;  8 Sense &amp; Sensibility         10       1 chapter    </span></span>
+<span id="cb5-17"><a href="tidytext.html#cb5-17" tabindex="-1"></a><span class="co">#&gt;  9 Sense &amp; Sensibility         10       1 1          </span></span>
+<span id="cb5-18"><a href="tidytext.html#cb5-18" tabindex="-1"></a><span class="co">#&gt; 10 Sense &amp; Sensibility         13       1 the        </span></span>
+<span id="cb5-19"><a href="tidytext.html#cb5-19" tabindex="-1"></a><span class="co">#&gt; # ℹ 725,045 more rows</span></span></code></pre></div>
+<p>This function uses the <a href="https://github.com/ropensci/tokenizers">tokenizers</a> package to separate each line of text in the original data frame into tokens. The default tokenizing is for words, but other options include characters, n-grams, sentences, lines, paragraphs, or separation around a regex pattern.</p>
+<p>Now that the data is in one-word-per-row format, we can manipulate it with tidy tools like dplyr. Often in text analysis, we will want to remove stop words; stop words are words that are not useful for an analysis, typically extremely common words such as “the”, “of”, “to”, and so forth in English. We can remove stop words (kept in the tidytext dataset <code>stop_words</code>) with an <code>anti_join()</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tidytext.html#cb6-1" tabindex="-1"></a><span class="fu">data</span>(stop_words)</span>
+<span id="cb6-2"><a href="tidytext.html#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="tidytext.html#cb6-3" tabindex="-1"></a>tidy_books <span class="ot">&lt;-</span> tidy_books <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="tidytext.html#cb6-4" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words)</span></code></pre></div>
+<p>The <code>stop_words</code> dataset in the tidytext package contains stop words from three lexicons. We can use them all together, as we have here, or <code>filter()</code> to only use one set of stop words if that is more appropriate for a certain analysis.</p>
+<p>We can also use dplyr’s <code>count()</code> to find the most common words in all the books as a whole.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tidytext.html#cb7-1" tabindex="-1"></a>tidy_books <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="tidytext.html#cb7-2" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb7-3"><a href="tidytext.html#cb7-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 13,914 × 2</span></span>
+<span id="cb7-4"><a href="tidytext.html#cb7-4" tabindex="-1"></a><span class="co">#&gt;    word       n</span></span>
+<span id="cb7-5"><a href="tidytext.html#cb7-5" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;  &lt;int&gt;</span></span>
+<span id="cb7-6"><a href="tidytext.html#cb7-6" tabindex="-1"></a><span class="co">#&gt;  1 miss    1855</span></span>
+<span id="cb7-7"><a href="tidytext.html#cb7-7" tabindex="-1"></a><span class="co">#&gt;  2 time    1337</span></span>
+<span id="cb7-8"><a href="tidytext.html#cb7-8" tabindex="-1"></a><span class="co">#&gt;  3 fanny    862</span></span>
+<span id="cb7-9"><a href="tidytext.html#cb7-9" tabindex="-1"></a><span class="co">#&gt;  4 dear     822</span></span>
+<span id="cb7-10"><a href="tidytext.html#cb7-10" tabindex="-1"></a><span class="co">#&gt;  5 lady     817</span></span>
+<span id="cb7-11"><a href="tidytext.html#cb7-11" tabindex="-1"></a><span class="co">#&gt;  6 sir      806</span></span>
+<span id="cb7-12"><a href="tidytext.html#cb7-12" tabindex="-1"></a><span class="co">#&gt;  7 day      797</span></span>
+<span id="cb7-13"><a href="tidytext.html#cb7-13" tabindex="-1"></a><span class="co">#&gt;  8 emma     787</span></span>
+<span id="cb7-14"><a href="tidytext.html#cb7-14" tabindex="-1"></a><span class="co">#&gt;  9 sister   727</span></span>
+<span id="cb7-15"><a href="tidytext.html#cb7-15" tabindex="-1"></a><span class="co">#&gt; 10 house    699</span></span>
+<span id="cb7-16"><a href="tidytext.html#cb7-16" tabindex="-1"></a><span class="co">#&gt; # ℹ 13,904 more rows</span></span></code></pre></div>
+<p>Because we’ve been using tidy tools, our word counts are stored in a tidy data frame. This allows us to pipe this directly to the ggplot2 package, for example to create a visualization of the most common words (Figure <a href="tidytext.html#fig:plotcount">1.2</a>).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tidytext.html#cb8-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="tidytext.html#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="tidytext.html#cb8-3" tabindex="-1"></a>tidy_books <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="tidytext.html#cb8-4" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="tidytext.html#cb8-5" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">600</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="tidytext.html#cb8-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">reorder</span>(word, n)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="tidytext.html#cb8-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, word)) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="tidytext.html#cb8-8" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb8-9"><a href="tidytext.html#cb8-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:plotcount"></span>
+<img src="01-genotypic-data_files/figure-html/plotcount-1.png" alt="The most common words in Jane Austen's novels" width="90%" />
+<p class="caption">
+Figure 1.2: The most common words in Jane Austen’s novels
+</p>
+</div>
+<p>Note that the <code>austen_books()</code> function started us with exactly the text we wanted to analyze, but in other cases we may need to perform cleaning of text data, such as removing copyright headers or formatting. You’ll see examples of this kind of pre-processing in the case study chapters, particularly Chapter <a href="#pre-processing-text"><strong>??</strong></a>.</p>
+</div>
+<div id="generate-final-genotypic-dataset" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> <strong>Generate Final Genotypic Dataset</strong><a href="tidytext.html#generate-final-genotypic-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we’ve used the janeaustenr package to explore tidying text, let’s introduce the <a href="https://github.com/ropensci/gutenbergr">gutenbergr</a> package <span class="citation">(<a href="#ref-R-gutenbergr">Robinson 2016</a>)</span>. The gutenbergr package provides access to the public domain works from the <a href="https://www.gutenberg.org/">Project Gutenberg</a> collection. The package includes tools both for downloading books (stripping out the unhelpful header/footer information), and a complete dataset of Project Gutenberg metadata that can be used to find works of interest. In this book, we will mostly use the function <code>gutenberg_download()</code> that downloads one or more works from Project Gutenberg by ID, but you can also use other functions to explore metadata, pair Gutenberg ID with title, author, language, etc., or gather information about authors.</p>
+<div class="rmdtip">
+<p>
+To learn more about gutenbergr, check out the <a
+href="https://docs.ropensci.org/gutenbergr/">package’s documentation at
+rOpenSci</a>, where it is one of rOpenSci’s packages for data
+access.
+</p>
+</div>
+</div>
+<div id="summary" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Summary<a href="tidytext.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this chapter, we explored what we mean by tidy data when it comes to text, and how tidy data principles can be applied to natural language processing. When text is organized in a format with one token per row, tasks like removing stop words or calculating word frequencies are natural applications of familiar operations within the tidy tool ecosystem. The one-token-per-row framework can be extended from single words to n-grams and other meaningful units of text, as well as to many other analysis priorities that we will consider in this book.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-R-gutenbergr" class="csl-entry">
+Robinson, David. 2016. <em><span class="nocase">gutenbergr</span>: Download and Process Public Domain Works from Project Gutenberg</em>. <a href="https://cran.rstudio.com/package=gutenbergr">https://cran.rstudio.com/package=gutenbergr</a>.
+</div>
+<div id="ref-R-janeaustenr" class="csl-entry">
+Silge, Julia. 2016. <em><span class="nocase">janeaustenr</span>: Jane Austen’s Complete Novels</em>. <a href="https://CRAN.R-project.org/package=janeaustenr">https://CRAN.R-project.org/package=janeaustenr</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="preface.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sentiment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

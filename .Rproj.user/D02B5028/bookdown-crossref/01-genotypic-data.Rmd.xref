@@ -1,0 +1,9 @@
+h1:tidytext Genotype Data
+h2:download-rice-snp-data-from-snp-seek-3k-rg 
+h2:align-accession-ids 
+fig:tidyflow-ch1 A flowchart of a typical text analysis using tidy data principles. This chapter shows how to summarize and visualize text using these tools.
+h2:tidyausten 
+fig:plotcount The most common words in Jane Austen
+h2:generate-final-genotypic-dataset 
+h2:summary Summary
+

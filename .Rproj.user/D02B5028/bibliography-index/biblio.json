@@ -1,0 +1,512 @@
+{
+    "sources": [
+        {
+            "DOI": "10.5281/zenodo.56714",
+            "URL": "http://dx.doi.org/10.5281/zenodo.56714",
+            "author": [
+                {
+                    "family": "Silge",
+                    "given": "Julia"
+                },
+                {
+                    "family": "Robinson",
+                    "given": "David"
+                },
+                {
+                    "family": "Hester",
+                    "given": "Jim"
+                }
+            ],
+            "id": "tidytext-archive",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        6
+                    ]
+                ]
+            },
+            "title": "tidytext: Text mining using dplyr, ggplot2, and other tidy tools",
+            "title-short": "tidytext",
+            "type": ""
+        },
+        {
+            "URL": "http://www.jstatsoft.org/v25/i05/",
+            "author": [
+                {
+                    "family": "Feinerer",
+                    "given": "Ingo"
+                },
+                {
+                    "family": "Hornik",
+                    "given": "Kurt"
+                },
+                {
+                    "family": "Meyer",
+                    "given": "David"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "tm",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "1-54",
+            "title": "Text mining infrastructure in r",
+            "type": "article-journal",
+            "volume": "25"
+        },
+        {
+            "DOI": "10.18637/jss.v059.i10",
+            "ISSN": "1548-7660",
+            "URL": "https://www.jstatsoft.org/index.php/jss/article/view/v059i10",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "tidydata",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "keyword": "",
+            "page": "1-23",
+            "title": "Tidy data",
+            "type": "article-journal",
+            "volume": "59"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=broom",
+            "author": [
+                {
+                    "family": "Robinson",
+                    "given": "David"
+                }
+            ],
+            "id": "R-broom",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "note": "R package version 0.4.2",
+            "title": "broom: Convert statistical analysis objects into tidy data frames",
+            "title-short": "broom",
+            "type": "book"
+        },
+        {
+            "URL": "https://cran.rstudio.com/package=gutenbergr",
+            "author": [
+                {
+                    "family": "Robinson",
+                    "given": "David"
+                }
+            ],
+            "id": "R-gutenbergr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "R package version 0.1.2",
+            "title": "gutenbergr: Download and process public domain works from project gutenberg",
+            "title-short": "gutenbergr",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=tokenizers",
+            "author": [
+                {
+                    "family": "Mullen",
+                    "given": "Lincoln"
+                }
+            ],
+            "id": "R-tokenizers",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "R package version 0.1.3",
+            "title": "tokenizers: A consistent interface to tokenize natural language text",
+            "title-short": "tokenizers",
+            "type": "book"
+        },
+        {
+            "DOI": "10.21105/joss.00037",
+            "URL": "http://dx.doi.org/10.21105/joss.00037",
+            "author": [
+                {
+                    "family": "Silge",
+                    "given": "Julia"
+                },
+                {
+                    "family": "Robinson",
+                    "given": "David"
+                }
+            ],
+            "container-title": "JOSS",
+            "id": "R-tidytext",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        7
+                    ]
+                ]
+            },
+            "publisher": "The Open Journal",
+            "title": "tidytext: Text mining and analysis using tidy data principles in r",
+            "title-short": "tidytext",
+            "type": "article-journal",
+            "volume": "1"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=dplyr",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Francois",
+                    "given": "Romain"
+                }
+            ],
+            "id": "R-dplyr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "R package version 0.5.0",
+            "title": "dplyr: A grammar of data manipulation",
+            "title-short": "dplyr",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=tidyr",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "id": "R-tidyr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "R package version 0.6.0",
+            "title": "tidyr: Easily tidy data with ‘spread()‘ and ‘gather()‘ functions",
+            "title-short": "tidyr",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=purrr",
+            "author": [
+                {
+                    "family": "Henry",
+                    "given": "Lionel"
+                },
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "id": "R-purrr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "note": "R package version 0.2.5",
+            "title": "Purrr: Functional programming tools",
+            "title-short": "Purrr",
+            "type": "book"
+        },
+        {
+            "ISBN": "978-0-387-98140-6",
+            "URL": "http://ggplot2.org",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "id": "R-ggplot2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "publisher": "Springer-Verlag New York",
+            "title": "ggplot2: Elegant graphics for data analysis",
+            "title-short": "ggplot2",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=quanteda",
+            "author": [
+                {
+                    "family": "Benoit",
+                    "given": "Kenneth"
+                },
+                {
+                    "family": "Nulty",
+                    "given": "Paul"
+                }
+            ],
+            "id": "R-quanteda",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "R package version 0.9.8",
+            "title": "quanteda: Quantitative analysis of textual data",
+            "title-short": "quanteda",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=janeaustenr",
+            "author": [
+                {
+                    "family": "Silge",
+                    "given": "Julia"
+                }
+            ],
+            "id": "R-janeaustenr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "R package version 0.1.2",
+            "title": "janeaustenr: Jane austen’s complete novels",
+            "title-short": "janeaustenr",
+            "type": "book"
+        },
+        {
+            "URL": "http://www.jstatsoft.org/v21/i12/",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "R-reshape2",
+            "issue": "12",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007
+                    ]
+                ]
+            },
+            "page": "1-20",
+            "title": "Reshaping data with the reshape package",
+            "type": "article-journal",
+            "volume": "21"
+        },
+        {
+            "DOI": "10.1111/j.1540-6261.2010.01625.x",
+            "ISSN": "1540-6261",
+            "URL": "http://dx.doi.org/10.1111/j.1540-6261.2010.01625.x",
+            "author": [
+                {
+                    "family": "Loughran",
+                    "given": "Tim"
+                },
+                {
+                    "family": "McDonald",
+                    "given": "Bill"
+                }
+            ],
+            "container-title": "The Journal of Finance",
+            "id": "loughran2011liability",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "page": "35-65",
+            "publisher": "Blackwell Publishing Inc",
+            "title": "When is a liability not a liability? Textual analysis, dictionaries, and 10-ks",
+            "type": "article-journal",
+            "volume": "66"
+        },
+        {
+            "URL": "https://cran.r-project.org/package=mallet",
+            "author": [
+                {
+                    "family": "Mimno",
+                    "given": "David"
+                }
+            ],
+            "id": "R-mallet",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "note": "R package version 1.0",
+            "title": "mallet: A wrapper around the java machine learning tool MALLET",
+            "title-short": "mallet",
+            "type": "book"
+        },
+        {
+            "ISBN": "0262062798, 9780262062794",
+            "author": [
+                {
+                    "family": "Abelson",
+                    "given": "Hal"
+                }
+            ],
+            "container-title": "Essentials of programming languages, 3rd edition",
+            "edition": "3",
+            "id": "Friedman:2008:EPL:1378240",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "publisher": "The MIT Press",
+            "title": "Foreword",
+            "type": "chapter"
+        },
+        {
+            "URL": "http://github.com/trinker/sentimentr",
+            "author": [
+                {
+                    "family": "Rinker",
+                    "given": "Tyler W."
+                }
+            ],
+            "id": "R-sentimentr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "note": "version 1.0.0",
+            "publisher": "University at Buffalo/SUNY",
+            "publisher-place": "Buffalo, New York",
+            "title": "sentimentr: Calculate text polarity sentiment",
+            "title-short": "sentimentr",
+            "type": "book"
+        },
+        {
+            "URL": "https://cran.r-project.org/package=coreNLP",
+            "author": [
+                {
+                    "family": "Arnold",
+                    "given": "Taylor"
+                },
+                {
+                    "family": "Tilton",
+                    "given": "Lauren"
+                }
+            ],
+            "id": "R-coreNLP",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "R package version 0.4.2",
+            "title": "coreNLP: Wrappers around stanford CoreNLP tools",
+            "title-short": "coreNLP",
+            "type": "book"
+        },
+        {
+            "URL": "https://cran.r-project.org/package=cleanNLP",
+            "author": [
+                {
+                    "family": "Arnold",
+                    "given": "Taylor B."
+                }
+            ],
+            "id": "R-cleanNLP",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "R package version 0.24",
+            "title": "cleanNLP: A tidy data model for natural language processing",
+            "title-short": "cleanNLP",
+            "type": "book"
+        },
+        {
+            "URL": "https://cran.r-project.org/package=ggraph",
+            "author": [
+                {
+                    "family": "Pedersen",
+                    "given": "Thomas Lin"
+                }
+            ],
+            "id": "R-ggraph",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "note": "R package version 1.0.0",
+            "title": "ggraph: An implementation of grammar of graphics for graphs and networks",
+            "title-short": "ggraph",
+            "type": "book"
+        }
+    ],
+    "project_biblios": [
+        "book.bib"
+    ]
+}

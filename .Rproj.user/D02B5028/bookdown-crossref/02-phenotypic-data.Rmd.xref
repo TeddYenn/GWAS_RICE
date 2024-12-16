@@ -1,0 +1,16 @@
+h1:sentiment Phenotype Data
+fig:tidyflow-ch2 A flowchart of a typical text analysis that uses tidytext for sentiment analysis. This chapter shows how to implement sentiment analysis using tidy data principles.
+h2:the-sentiments-datasets The  datasets
+h2:sentiment-analysis-with-inner-join Sentiment analysis with inner join
+fig:sentimentplot Sentiment through the narratives of Jane Austen
+h2:comparing-the-three-sentiment-dictionaries Comparing the three sentiment dictionaries
+(ref:comparecap) Comparing three sentiment lexicons using 
+fig:compareplot (ref:comparecap)
+h2:most-positive-negative Most common positive and negative words
+fig:pipetoplot Words that contribute to positive and negative sentiment in Jane Austen
+h2:wordclouds Wordclouds
+fig:firstwordcloud The most common words in Jane Austen
+fig:wordcloud Most common positive and negative words in Jane Austen
+h2:looking-at-units-beyond-just-words Looking at units beyond just words
+h2:summary Summary
+
