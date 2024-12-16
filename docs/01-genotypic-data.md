@@ -208,7 +208,7 @@ tidy_books %>%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="01-genotypic-data_files/figure-epub3/plotcount-1.png" alt="The most common words in Jane Austen's novels" width="90%" />
+<img src="01-genotypic-data_files/figure-html/plotcount-1.png" alt="The most common words in Jane Austen's novels" width="90%" />
 <p class="caption">(\#fig:plotcount)The most common words in Jane Austen's novels</p>
 </div>
 

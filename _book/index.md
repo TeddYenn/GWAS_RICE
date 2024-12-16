@@ -24,9 +24,9 @@ description: "A guide to GWAS analysis in rice, using the R and PLINK programs"
 
 This is the [website](http://tidytextmining.com/) for ***GWAS analysis with R and PLINK programs***.
 
-This work by **Yen-Hsiang (Teddy) Huang** is licensed under a <a rel="license" href="https://www.gnu.org/licenses/fdl-1.3.html.en#license-text">GNU Free Documentation License</a>.
+This work by **Yen-Hsiang (Teddy) Huang** is licensed under a <a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.html.en">GNU General Public License</a>.
 
-<a href="https://www.gnu.org/licenses/fdl-1.3.html.en#license-text"> ![](images/clipboard-1489856658.png)</a>
+<a href="https://www.gnu.org/licenses/gpl-3.0.html.en"> ![](images/clipboard-3960043298.png)</a>
 
 ```{=html}
 <script>

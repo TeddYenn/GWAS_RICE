@@ -203,7 +203,7 @@ ggplot(jane_austen_sentiment, aes(index, sentiment, fill = book)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-phenotypic-data_files/figure-epub3/sentimentplot-1.png" alt="Sentiment through the narratives of Jane Austen's novels" width="90%" />
+<img src="02-phenotypic-data_files/figure-html/sentimentplot-1.png" alt="Sentiment through the narratives of Jane Austen's novels" width="90%" />
 <p class="caption">(\#fig:sentimentplot)Sentiment through the narratives of Jane Austen's novels</p>
 </div>
 
@@ -289,7 +289,7 @@ bind_rows(afinn,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-phenotypic-data_files/figure-epub3/compareplot-1.png" alt="(ref:comparecap)" width="90%" />
+<img src="02-phenotypic-data_files/figure-html/compareplot-1.png" alt="(ref:comparecap)" width="90%" />
 <p class="caption">(\#fig:compareplot)(ref:comparecap)</p>
 </div>
 
@@ -372,7 +372,7 @@ bing_word_counts %>%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-phenotypic-data_files/figure-epub3/pipetoplot-1.png" alt="Words that contribute to positive and negative sentiment in Jane Austen's novels" width="90%" />
+<img src="02-phenotypic-data_files/figure-html/pipetoplot-1.png" alt="Words that contribute to positive and negative sentiment in Jane Austen's novels" width="90%" />
 <p class="caption">(\#fig:pipetoplot)Words that contribute to positive and negative sentiment in Jane Austen's novels</p>
 </div>
 
@@ -418,7 +418,7 @@ tidy_books %>%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-phenotypic-data_files/figure-epub3/firstwordcloud-1.png" alt="The most common words in Jane Austen's novels" width="90%" />
+<img src="02-phenotypic-data_files/figure-html/firstwordcloud-1.png" alt="The most common words in Jane Austen's novels" width="90%" />
 <p class="caption">(\#fig:firstwordcloud)The most common words in Jane Austen's novels</p>
 </div>
 
@@ -437,7 +437,7 @@ tidy_books %>%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-phenotypic-data_files/figure-epub3/wordcloud-1.png" alt="Most common positive and negative words in Jane Austen's novels" width="90%" />
+<img src="02-phenotypic-data_files/figure-html/wordcloud-1.png" alt="Most common positive and negative words in Jane Austen's novels" width="90%" />
 <p class="caption">(\#fig:wordcloud)Most common positive and negative words in Jane Austen's novels</p>
 </div>
 

@@ -1,6 +1,6 @@
 # Genotype Data {#tidytext}
 
-1.   **Download Rice SNP data from SNP-Seek (3K RG):** We utilized the 3K RG 18 million Base SNP Dataset and the 3K RG 404k Core SNP Dataset.
+1.  **Download Rice SNP data from SNP-Seek (3K RG):** We utilized the 3K RG 18 million Base SNP Dataset and the 3K RG 404k Core SNP Dataset.
 
 2.  **Align Accession IDs:** Match the accession IDs between the phenotypic and SNP datasets.
 
