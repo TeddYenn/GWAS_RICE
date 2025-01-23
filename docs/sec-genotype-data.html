@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>1 Genotype Data | GWAS Tutorial</title>
+<meta name="author" content="Yen-Hsiang (Teddy) Huang">
+<meta name="description" content="Download Rice SNP data from SNP-Seek (3K RG) Align Accession IDs SNP Data Processing and Quality Control Generate Final Genotypic data  1.1 Download Rice SNP data from SNP-Seek (3K RG) Data...">
+<meta name="generator" content="bookdown 0.40 with bs4_book()">
+<meta property="og:title" content="1 Genotype Data | GWAS Tutorial">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://github.com/TeddYenn/GWAS_RICE/sec-genotype-data.html">
+<meta property="og:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
+<meta property="og:description" content="Download Rice SNP data from SNP-Seek (3K RG) Align Accession IDs SNP Data Processing and Quality Control Generate Final Genotypic data  1.1 Download Rice SNP data from SNP-Seek (3K RG) Data...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 Genotype Data | GWAS Tutorial">
+<meta name="twitter:description" content="Download Rice SNP data from SNP-Seek (3K RG) Align Accession IDs SNP Data Processing and Quality Control Generate Final Genotypic data  1.1 Download Rice SNP data from SNP-Seek (3K RG) Data...">
+<meta name="twitter:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Montserrat-0.4.9/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="For Anaerobic Germination in Rice">GWAS Tutorial</a>:
+        <small class="text-muted">For Anaerobic Germination in Rice</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GWAS Tutorial</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="active" href="sec-genotype-data.html"><span class="header-section-number">1</span> Genotype Data</a></li>
+<li><a class="" href="sec-phenotype-data.html"><span class="header-section-number">2</span> Phenotype Data</a></li>
+<li><a class="" href="sec-gw.html"><span class="header-section-number">3</span> GWAS</a></li>
+<li><a class="" href="sec-post-gwas.html"><span class="header-section-number">4</span> Post-GWAS</a></li>
+<li><a class="" href="sec-extra.html"><span class="header-section-number">5</span> Extra Analysis and Visualization</a></li>
+<li><a class="" href="sec-findings.html"><span class="header-section-number">6</span> Findings</a></li>
+<li><a class="" href="sec-summary.html"><span class="header-section-number">7</span> Summary</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/TeddYenn/GWAS_RICE">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sec-genotype-data" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Genotype Data<a class="anchor" aria-label="anchor" href="#sec-genotype-data"><i class="fas fa-link"></i></a>
+</h1>
+<ol style="list-style-type: decimal">
+<li><p><strong>Download Rice SNP data from SNP-Seek (3K RG)</strong></p></li>
+<li><p><strong>Align Accession IDs</strong></p></li>
+<li><p><strong>SNP Data Processing and Quality Control</strong></p></li>
+<li><p><strong>Generate Final Genotypic data</strong></p></li>
+</ol>
+<div id="download-rice-snp-data-from-snp-seek-3k-rg" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> <strong>Download Rice SNP data from SNP-Seek (3K RG)</strong><a class="anchor" aria-label="anchor" href="#download-rice-snp-data-from-snp-seek-3k-rg"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data repository for the 3K RG, hosted by IRRI:
+<a href="https://snpseekv3.irri-e-extension.com/v2/_download.zul" class="uri">https://snpseekv3.irri-e-extension.com/v2/download.zul</a></p>
+<p>We utilized the <u>3K RG 18 million Base SNP Dataset</u> and the
+<u>3K RG 404k Core SNP Dataset</u>:</p>
+<ul>
+<li><p><strong>3K RG 18mio Base SNP Dataset:</strong> A base SNP set consisting of
+approximately 18 million SNPs was derived from the initial ~29
+million biallelic SNPs by excluding those with an excessive number
+of heterozygous calls.</p></li>
+<li><p><strong>3K RG 404k CoreSNP Dataset:</strong> The Core SNP set was derived from
+the filtered SNP set through a two-step LD pruning procedure.</p></li>
+<li><p><a href="https://3kricegenome.s3.us-east-1.amazonaws.com/kaust_irri_3k_16refs/3K_list_sra_ids.txt"><strong>Mapping
+table</strong></a><strong>:</strong>
+NCBI SRA accession IDs to 3K RG assay IDs.</p></li>
+</ul>
+<p>Please download the PLINK <code>.bed</code>, <code>.bim</code>, and <code>.fam</code> files for the two
+datasets. After downloading, extract the files and rename them as
+<code>IRRI_18M_3024</code> and <code>IRRI_404K_3024</code>. Also, download and save the
+<a href="https://3kricegenome.s3.us-east-1.amazonaws.com/kaust_irri_3k_16refs/3K_list_sra_ids.txt"><strong>Mapping
+table</strong></a>
+in a <code>.csv</code> file for reference.</p>
+<div class="rmdnote">
+<p>
+The reference genome for these datasets is ‘Nipponbare
+MSU7/IRGSP1.0’.
+</p>
+</div>
+</div>
+<div id="align-accession-ids" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> <strong>Align Accession IDs</strong><a class="anchor" aria-label="anchor" href="#align-accession-ids"><i class="fas fa-link"></i></a>
+</h2>
+<p>Match the accession IDs between the phenotypic data and SNP datasets. We
+identified three issues related to inconsistencies in the spelling,
+formatting, and ranking of ID names between the phenotype and genotype
+data:</p>
+<ol style="list-style-type: decimal">
+<li><p>The ID names in the phenotype data must correspond precisely with
+those in the genotype datasets, using the Mapping Table as a
+reference.</p></li>
+<li>
+<p>The format of ID names in the Mapping Table is inconsistent with the
+format used in the phenotype data. For example, consider a sample
+named <code>EX WUKARI (WILD)::IRGC 63214-3</code>:</p>
+<table class="table table-sm">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th>ID in Phenotype</th>
+<th>ID in <a href="https://3kricegenome.s3.us-east-1.amazonaws.com/kaust_irri_3k_16refs/3K_list_sra_ids.txt">Mapping Table</a>
+</th>
+<th>ID in Genotype</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>EX WUKARI (WILD)::IRGC 63214-3</td>
+<td>EX_WUKARI_(WILD)::IRGC_63214-1</td>
+<td>IRIS_313-11657</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>IRIS_313-11657</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>In the genotype data, the rank order of ID names does not follow the
+correct sequence. For example, the correct order should be:
+<code>IRIS_313-8890</code>, <code>IRIS_313-9101</code>, and <code>IRIS_313-11657</code>, not
+<code>IRIS_313-11657</code>, <code>IRIS_313-8890</code>, and <code>IRIS_313-9101</code>.</p></li>
+</ol>
+<details><summary>
+➡️ <strong>Working on R (RStudio)</strong>
+</summary><p><strong>Input: Pheno_327_unranked.csv</strong><br>
+Annotated phenotypic data with aligned and matched ID names.</p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">##### R CODES #####</span></span>
+<span></span>
+<span><span class="co"># Set the working directory</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"...your file path..."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Load the phenotypic data from IRRI</span></span>
+<span><span class="va">Pheno_327_unranked</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"Pheno_327_unranked.csv"</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Pheno_327_unranked</span><span class="op">$</span><span class="va">DNA_ID</span> <span class="op">==</span> <span class="st">"IRIS_313-7620"</span><span class="op">)</span> <span class="co"># 253</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Pheno_327_unranked</span><span class="op">$</span><span class="va">DNA_ID</span> <span class="op">==</span> <span class="st">"IRIS_313-9989"</span><span class="op">)</span> <span class="co"># 327</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Pheno_327_unranked</span><span class="op">$</span><span class="va">DNA_ID</span> <span class="op">==</span> <span class="st">"IRIS_313-10020"</span><span class="op">)</span> <span class="co"># 5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Pheno_327_unranked</span><span class="op">$</span><span class="va">DNA_ID</span> <span class="op">==</span> <span class="st">"IRIS_313-15902"</span><span class="op">)</span> <span class="co"># 252</span></span>
+<span></span>
+<span><span class="co"># Rearrange the data frame to exclude specific entries</span></span>
+<span><span class="va">Pheno_327_ranked</span> <span class="op">=</span> <span class="va">Pheno_327_unranked</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">253</span><span class="op">:</span><span class="fl">327</span>, <span class="fl">5</span><span class="op">:</span><span class="fl">252</span><span class="op">)</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Save the sorted and rearranged data frame to a CSV file</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">Pheno_327_ranked</span>, <span class="st">"Pheno_327_ranked.csv"</span>, row.names <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Export a text file with the IDs for further analysis</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">Pheno_327_ranked</span><span class="op">$</span><span class="va">DNA_ID</span>, <span class="va">Pheno_327_ranked</span><span class="op">$</span><span class="va">DNA_ID</span><span class="op">)</span>, <span class="st">"Pheno_327_ID.txt"</span>, row.names <span class="op">=</span> <span class="cn">F</span>, col.names <span class="op">=</span> <span class="cn">F</span>, quote <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
+</details><details><summary><strong>Outputs</strong>
+</summary><ul>
+<li><p><strong>Pheno_327_ranked.csv</strong><br>
+Phenotypic data that has been sorted and reorganized.</p></li>
+<li><p><strong>Pheno_327_ID.txt</strong><br>
+A text file containing the list of IDs.</p></li>
+</ul></details><hr>
+</div>
+<div id="snp-data-processing-and-quality-control" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> SNP Data Processing and Quality Control<a class="anchor" aria-label="anchor" href="#snp-data-processing-and-quality-control"><i class="fas fa-link"></i></a>
+</h2>
+<p>Perform data generation and quality control on the SNP data for the
+subset of 327 samples. Starting with the 3K Rice Genome 18 million SNP
+dataset (IRRI_18M_3024), the dataset is filtered for missingness,
+reducing it to 10 million SNPs, and further refined based on minor
+allele frequency (MAF) to approximately 1.9 million high-quality SNPs,
+ready for GWAS.</p>
+<details><summary>
+➡️ <strong>Working on PLINK in the terminal</strong>
+</summary><div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="sec-genotype-data.html#cb18-1" tabindex="-1"></a><span class="do">##### PLINK COMMANDS #####  </span></span>
+<span id="cb18-2"><a href="sec-genotype-data.html#cb18-2" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="sec-genotype-data.html#cb18-3" tabindex="-1"></a><span class="co"># Change your path into the directory of the '3K RG 18mio Base SNP Dataset (IRRI_18M_3024)' </span></span>
+<span id="cb18-4"><a href="sec-genotype-data.html#cb18-4" tabindex="-1"></a>cd ...your file path...  </span>
+<span id="cb18-5"><a href="sec-genotype-data.html#cb18-5" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="sec-genotype-data.html#cb18-6" tabindex="-1"></a><span class="co"># Subset dataset to include 327 individuals with phenotype and genotype </span></span>
+<span id="cb18-7"><a href="sec-genotype-data.html#cb18-7" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_18M_3024 <span class="sc">--</span>keep Pheno_327_ID.txt <span class="sc">--</span>make<span class="sc">-</span>bed <span class="sc">--</span>noweb <span class="sc">--</span>allow<span class="sc">-</span>no<span class="sc">-</span>sex <span class="sc">--</span>out IRRI_18M_327</span>
+<span id="cb18-8"><a href="sec-genotype-data.html#cb18-8" tabindex="-1"></a><span class="co"># --keep: Retain 327 samples with Phenotype and Genotype  </span></span>
+<span id="cb18-9"><a href="sec-genotype-data.html#cb18-9" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="sec-genotype-data.html#cb18-10" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_18M_327 <span class="sc">--</span>missing </span>
+<span id="cb18-11"><a href="sec-genotype-data.html#cb18-11" tabindex="-1"></a><span class="co"># --missing: Calculate SNP missing rates </span></span>
+<span id="cb18-12"><a href="sec-genotype-data.html#cb18-12" tabindex="-1"></a><span class="co"># Changes the outcome's filenames into IRRI_18M_327.lmiss and IRRI_18M_327.imiss.  </span></span>
+<span id="cb18-13"><a href="sec-genotype-data.html#cb18-13" tabindex="-1"></a><span class="co"># Create a new data after removing SNPs with high missing rates </span></span>
+<span id="cb18-14"><a href="sec-genotype-data.html#cb18-14" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="sec-genotype-data.html#cb18-15" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_18M_327 <span class="sc">--</span>exclude remove_SNP_list_miss_IRRI_18M_327.txt <span class="sc">--</span>make<span class="sc">-</span>bed <span class="sc">--</span>noweb <span class="sc">--</span>allow<span class="sc">-</span>no<span class="sc">-</span>sex <span class="sc">--</span>out IRRI_10M_327 </span>
+<span id="cb18-16"><a href="sec-genotype-data.html#cb18-16" tabindex="-1"></a><span class="co"># -&gt; 10617659 variants and 327 people pass filters and QC </span></span>
+<span id="cb18-17"><a href="sec-genotype-data.html#cb18-17" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_10M_327 <span class="sc">--</span>missing </span>
+<span id="cb18-18"><a href="sec-genotype-data.html#cb18-18" tabindex="-1"></a><span class="co"># Changes the outcome's filenames into IRRI_10M_327.lmiss and IRRI_10M_327.imiss. </span></span>
+<span id="cb18-19"><a href="sec-genotype-data.html#cb18-19" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_10M_327 <span class="sc">--</span>freq  </span>
+<span id="cb18-20"><a href="sec-genotype-data.html#cb18-20" tabindex="-1"></a><span class="co"># Create a new data after removing SNPs with low MAF </span></span>
+<span id="cb18-21"><a href="sec-genotype-data.html#cb18-21" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="sec-genotype-data.html#cb18-22" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_10M_327 <span class="sc">--</span>exclude remove_SNP_list_maf_IRRI_10M_327.txt <span class="sc">--</span>make<span class="sc">-</span>bed <span class="sc">--</span>noweb <span class="sc">--</span>allow<span class="sc">-</span>no<span class="sc">-</span>sex <span class="sc">--</span>out IRRI_1<span class="fl">.9</span>M_327</span>
+<span id="cb18-23"><a href="sec-genotype-data.html#cb18-23" tabindex="-1"></a><span class="co"># -&gt; 1972824 variants and 327 people pass filters and QC </span></span>
+<span id="cb18-24"><a href="sec-genotype-data.html#cb18-24" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_1<span class="fl">.9</span>M_327 <span class="sc">--</span>missing </span>
+<span id="cb18-25"><a href="sec-genotype-data.html#cb18-25" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_1<span class="fl">.9</span>M_327 <span class="sc">--</span>freq .<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_1<span class="fl">.9</span>M_327 <span class="sc">--</span>het </span>
+<span id="cb18-26"><a href="sec-genotype-data.html#cb18-26" tabindex="-1"></a><span class="co"># Changes the outcome's filenames into IRRI_1.9M_327.lmiss, IRRI_1.9M_327.imiss, IRRI_1.9M_327.frq and IRRI_1.9M_327.het.</span></span></code></pre></div>
+</details><details><summary>
+➡️ <strong>Working on R (RStudio)</strong>
+</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">##### R CODES #####</span></span>
+<span></span>
+<span><span class="co"># Set the working directory</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"...your file path..."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove SNPs with a high missing rate (retain SNPs with missing rate ≤ 0.05)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">SNP_miss</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_18M_327.lmiss"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SNP_miss</span><span class="op">$</span><span class="va">F_MISS</span>, main <span class="op">=</span> <span class="st">"Histogram of SNP missing rate of IRRI_18M_327"</span>, xlab <span class="op">=</span> <span class="st">"SNP missing rate"</span><span class="op">)</span> <span class="co"># Visualize SNP missing rate</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">SNP_miss</span><span class="op">$</span><span class="va">F_MISS</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate and visualize sample missing rates</span></span>
+<span><span class="va">Sample_miss</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_18M_327.imiss"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">Sample_miss</span><span class="op">$</span><span class="va">F_MISS</span>, main <span class="op">=</span> <span class="st">"Histogram of sample missing rate of IRRI_18M_327"</span>, xlab <span class="op">=</span> <span class="st">"Sample missing rate"</span><span class="op">)</span> <span class="co"># Visualize sample missing rate</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Sample_miss</span><span class="op">$</span><span class="va">F_MISS</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Identify and remove SNPs with high missing rates</span></span>
+<span><span class="va">loc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">SNP_miss</span><span class="op">$</span><span class="va">F_MISS</span> <span class="op">&gt;=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="va">remove_SNP_list</span> <span class="op">=</span> <span class="va">SNP_miss</span><span class="op">[</span><span class="va">loc</span>, <span class="fl">2</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">SNP_miss</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">remove_SNP_list</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="co"># SNPs passing filters</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">remove_SNP_list</span>, <span class="st">"remove_SNP_list_miss_IRRI_18M_327.txt"</span>, row.names <span class="op">=</span> <span class="cn">F</span>, col.names <span class="op">=</span> <span class="cn">F</span>, quote <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate SNP missing rates for the filtered data</span></span>
+<span><span class="va">SNP_miss</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_10M_327.lmiss"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SNP_miss</span><span class="op">$</span><span class="va">F_MISS</span>, main <span class="op">=</span> <span class="st">"Histogram of SNP missing rate of IRRI_10M_327"</span>, xlab <span class="op">=</span> <span class="st">"SNP missing rate"</span><span class="op">)</span> <span class="co"># Visualize SNP missing rate</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">SNP_miss</span><span class="op">$</span><span class="va">F_MISS</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate and visualize sample missing rates for the filtered data</span></span>
+<span><span class="va">Sample_miss</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_10M_327.imiss"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">Sample_miss</span><span class="op">$</span><span class="va">F_MISS</span>, main <span class="op">=</span> <span class="st">"Histogram of sample missing rate of IRRI_10M_327"</span>, xlab <span class="op">=</span> <span class="st">"Sample missing rate"</span><span class="op">)</span> <span class="co"># Visualize sample missing rate</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Sample_miss</span><span class="op">$</span><span class="va">F_MISS</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove SNPs with minor allele frequency (MAF) &lt; 0.05</span></span>
+<span><span class="va">frq_data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_10M_327.frq"</span><span class="op">)</span> <span class="co"># Load frequency data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">frq_data</span><span class="op">$</span><span class="va">MAF</span>, main <span class="op">=</span> <span class="st">"Histogram of MAF of IRRI_10M_327"</span>, xlab <span class="op">=</span> <span class="st">"Minor allele frequency"</span><span class="op">)</span> <span class="co"># Visualize MAF</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">frq_data</span><span class="op">$</span><span class="va">MAF</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Identify and remove SNPs with low MAF</span></span>
+<span><span class="va">loc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">frq_data</span><span class="op">$</span><span class="va">MAF</span> <span class="op">&lt;</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="va">remove_SNP_list</span> <span class="op">=</span> <span class="va">frq_data</span><span class="op">[</span><span class="va">loc</span>, <span class="fl">2</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">frq_data</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">remove_SNP_list</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="co"># SNPs passing filters</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">remove_SNP_list</span>, <span class="st">"remove_SNP_list_maf_IRRI_10M_327.txt"</span>, row.names <span class="op">=</span> <span class="cn">F</span>, col.names <span class="op">=</span> <span class="cn">F</span>, quote <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check data quality metrics: missing rate, MAF, inbreeding F, and HWE</span></span>
+<span><span class="co"># Calculate and visualize SNP missing rates for the final data</span></span>
+<span><span class="va">SNP_miss</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_1.9M_327.lmiss"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SNP_miss</span><span class="op">$</span><span class="va">F_MISS</span>, main <span class="op">=</span> <span class="st">"Histogram of SNP missing rate of IRRI_1.9M_327"</span>, xlab <span class="op">=</span> <span class="st">"SNP missing rate"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">SNP_miss</span><span class="op">$</span><span class="va">F_MISS</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate and visualize sample missing rates for the final data</span></span>
+<span><span class="va">Sample_miss</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_1.9M_327.imiss"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">Sample_miss</span><span class="op">$</span><span class="va">F_MISS</span>, main <span class="op">=</span> <span class="st">"Histogram of sample missing rate of IRRI_1.9M_327"</span>, xlab <span class="op">=</span> <span class="st">"Sample missing rate"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Sample_miss</span><span class="op">$</span><span class="va">F_MISS</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate and visualize MAF for the final data</span></span>
+<span><span class="va">frq_data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_1.9M_327.frq"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">frq_data</span><span class="op">$</span><span class="va">MAF</span>, main <span class="op">=</span> <span class="st">"Histogram of MAF of IRRI_1.9M_327"</span>, xlab <span class="op">=</span> <span class="st">"Minor allele frequency"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">frq_data</span><span class="op">$</span><span class="va">MAF</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate and visualize inbreeding coefficient (F) for the final data</span></span>
+<span><span class="va">het_data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_1.9M_327.het"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">het_data</span><span class="op">$</span><span class="cn">F</span>, main <span class="op">=</span> <span class="st">"Histogram of F coefficient of IRRI_1.9M_327"</span>, xlab <span class="op">=</span> <span class="st">"Inbreeding F coefficient"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">het_data</span><span class="op">$</span><span class="cn">F</span><span class="op">)</span></span></code></pre></div>
+</details><details><summary><strong>Outputs</strong>
+</summary><ol style="list-style-type: decimal">
+<li>
+<p>Histogram of SNP missing rate of IRRI_1.9M_327</p>
+<div class="inline-figure"><img src="images/clipboard-453989293.png" width="400"></div>
+</li>
+<li>
+<p>Histogram of sample missing rate of IRRI_1.9M_327</p>
+<div class="inline-figure"><img src="images/clipboard-4042699045.png" width="400"></div>
+</li>
+<li>
+<p>Histogram of MAF of IRRI_1.9M_327</p>
+<div class="inline-figure"><img src="images/clipboard-4172286415.png" width="400"></div>
+</li>
+<li>
+<p>Histogram of F coefficient of IRRI_1.9M_327</p>
+<div class="inline-figure"><img src="images/clipboard-2646985012.png" width="400"></div>
+</li>
+</ol></details><hr>
+</div>
+<div id="generate-final-genotypic-data" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> <strong>Generate Final Genotypic data</strong><a class="anchor" aria-label="anchor" href="#generate-final-genotypic-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>Prepare the final genotypic data for GWAS analysis. We now need to
+convert the QC-passed SNP data in PLINK format (<code>.bed</code>, <code>.bim</code>, and
+<code>.fam</code>) into HapMap format, compatible with the GAPIT package.</p>
+<details><summary>
+➡️ <strong>Working on PLINK in the terminal</strong>
+</summary><div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="sec-genotype-data.html#cb20-1" tabindex="-1"></a><span class="do">##### PLINK COMMANDS #####</span></span>
+<span id="cb20-2"><a href="sec-genotype-data.html#cb20-2" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="sec-genotype-data.html#cb20-3" tabindex="-1"></a><span class="co"># Change your path into the directory of the 'IRRI_1.9M_327'</span></span>
+<span id="cb20-4"><a href="sec-genotype-data.html#cb20-4" tabindex="-1"></a><span class="co"># cd ...your file path...</span></span>
+<span id="cb20-5"><a href="sec-genotype-data.html#cb20-5" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_1<span class="fl">.9</span>M_327 <span class="sc">--</span>recode vcf <span class="sc">--</span>out IRRI_1<span class="fl">.9</span>M_327</span></code></pre></div>
+</details><details><summary>
+➡️ <strong>Working on R (RStudio)</strong>
+</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">##### R CODES #####</span></span>
+<span></span>
+<span><span class="co"># Set the working directory</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"...your file path..."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/knausb/vcfR">vcfR</a></span><span class="op">)</span></span>
+<span><span class="va">vcfR</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/vcfR/man/io_vcfR.html">read.vcfR</a></span><span class="op">(</span></span>
+<span>  <span class="st">"IRRI_1.9M_327.vcf"</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">1e+50</span>,</span>
+<span>  nrows <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
+<span>  skip <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  cols <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  convertNA <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  checkFile <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  check_keys <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">HapMap</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/vcfR/man/vcfR2hapmap.html">vcfR2hapmap</a></span><span class="op">(</span><span class="va">vcfR_test</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">HapMap</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">HapMap</span>,</span>
+<span>            file <span class="op">=</span> <span class="st">"IRRI_1.9M_327.hmp.txt"</span>,</span>
+<span>            sep <span class="op">=</span> <span class="st">"\t"</span>,</span>
+<span>            row.names <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>            col.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Geno</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"IRRI_1.9M_327.hmp.txt"</span>, head <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">Geno</span>, <span class="st">"Geno.rds"</span><span class="op">)</span> <span class="co"># Final data for GWAS</span></span></code></pre></div>
+</details><hr>
+<p>We have prepared a genotypic data for GWAS analysis, including 327
+samples and 1.9 million SNPs.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="preface.html">Preface</a></div>
+<div class="next"><a href="sec-phenotype-data.html"><span class="header-section-number">2</span> Phenotype Data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sec-genotype-data"><span class="header-section-number">1</span> Genotype Data</a></li>
+<li><a class="nav-link" href="#download-rice-snp-data-from-snp-seek-3k-rg"><span class="header-section-number">1.1</span> Download Rice SNP data from SNP-Seek (3K RG)</a></li>
+<li><a class="nav-link" href="#align-accession-ids"><span class="header-section-number">1.2</span> Align Accession IDs</a></li>
+<li><a class="nav-link" href="#snp-data-processing-and-quality-control"><span class="header-section-number">1.3</span> SNP Data Processing and Quality Control</a></li>
+<li><a class="nav-link" href="#generate-final-genotypic-data"><span class="header-section-number">1.4</span> Generate Final Genotypic data</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/TeddYenn/GWAS_RICE/blob/master/01-genotypic-data.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/TeddYenn/GWAS_RICE/edit/master/01-genotypic-data.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-23.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

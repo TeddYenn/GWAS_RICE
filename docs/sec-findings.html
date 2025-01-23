@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>6 Findings | GWAS Tutorial</title>
+<meta name="author" content="Yen-Hsiang (Teddy) Huang">
+<meta name="description" content="We used a subset of 311 samples for further analysis. This subset was obtained by excluding 30 samples that had phenotypic data but lacked genotypic data, as well as 2,713 samples that had...">
+<meta name="generator" content="bookdown 0.40 with bs4_book()">
+<meta property="og:title" content="6 Findings | GWAS Tutorial">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://github.com/TeddYenn/GWAS_RICE/sec-findings.html">
+<meta property="og:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
+<meta property="og:description" content="We used a subset of 311 samples for further analysis. This subset was obtained by excluding 30 samples that had phenotypic data but lacked genotypic data, as well as 2,713 samples that had...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6 Findings | GWAS Tutorial">
+<meta name="twitter:description" content="We used a subset of 311 samples for further analysis. This subset was obtained by excluding 30 samples that had phenotypic data but lacked genotypic data, as well as 2,713 samples that had...">
+<meta name="twitter:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Montserrat-0.4.9/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="For Anaerobic Germination in Rice">GWAS Tutorial</a>:
+        <small class="text-muted">For Anaerobic Germination in Rice</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GWAS Tutorial</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="sec-genotype-data.html"><span class="header-section-number">1</span> Genotype Data</a></li>
+<li><a class="" href="sec-phenotype-data.html"><span class="header-section-number">2</span> Phenotype Data</a></li>
+<li><a class="" href="sec-gw.html"><span class="header-section-number">3</span> GWAS</a></li>
+<li><a class="" href="sec-post-gwas.html"><span class="header-section-number">4</span> Post-GWAS</a></li>
+<li><a class="" href="sec-extra.html"><span class="header-section-number">5</span> Extra Analysis and Visualization</a></li>
+<li><a class="active" href="sec-findings.html"><span class="header-section-number">6</span> Findings</a></li>
+<li><a class="" href="sec-summary.html"><span class="header-section-number">7</span> Summary</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/TeddYenn/GWAS_RICE">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sec-findings" class="section level1" number="6">
+<h1>
+<span class="header-section-number">6</span> Findings<a class="anchor" aria-label="anchor" href="#sec-findings"><i class="fas fa-link"></i></a>
+</h1>
+<ul>
+<li><p><strong>We used a subset of 311 samples for further analysis.</strong> This
+subset was obtained by excluding 30 samples that had phenotypic data
+but lacked genotypic data, as well as 2,713 samples that had
+genotypic data but no corresponding phenotypic data.</p></li>
+<li><p><strong>The final dataset comprises 1,972,824 SNPs (1,972K; 1.9M) and 311
+samples.</strong> Criteria were applied to filter out certain SNPs, while
+efforts were made to retain all samples if their missing rates were
+within acceptable limits ( &lt; ~10%). Although some samples
+exhibited lower inbreeding coefficients (indicating higher
+heterozygosity), all 311 samples were retained in the final dataset
+for GWAS analysis.</p></li>
+<li><p><strong>The deviations of measurement</strong> <strong>under 14-day (3.09 and 9.10) are
+smaller</strong> than under 7-day (2.93 and 8.91)→ use measurements under
+14-day are better.</p></li>
+</ul>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="9%">
+<col width="20%">
+<col width="23%">
+<col width="21%">
+<col width="24%">
+</colgroup>
+<thead><tr class="header">
+<th>Groups</th>
+<th>Control (7-day)</th>
+<th>Treatment (7-day)</th>
+<th>Control (14-day)</th>
+<th>Treatment (14-day)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Mean</td>
+<td>96.49</td>
+<td>11.88</td>
+<td>97.02</td>
+<td>16.98</td>
+</tr>
+<tr class="even">
+<td>SD</td>
+<td>3.09</td>
+<td>9.10</td>
+<td>2.93</td>
+<td>8.91</td>
+</tr>
+</tbody>
+</table></div>
+<details><summary><strong>How to download the R packages</strong>
+</summary><div id="step-1-understand-r-packages" class="section level3 unnumbered">
+<h3>Step 1: Understand R Packages<a class="anchor" aria-label="anchor" href="#step-1-understand-r-packages"><i class="fas fa-link"></i></a>
+</h3>
+<p>R packages are collections of functions, data, and documentation that
+extend R’s capabilities. These packages are hosted on CRAN,
+Bioconductor, or GitHub.</p>
+</div>
+<div id="step-2-install-cran-packages" class="section level3 unnumbered">
+<h3>Step 2: Install CRAN Packages<a class="anchor" aria-label="anchor" href="#step-2-install-cran-packages"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Basic Installation</strong>: Use the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function to
+install packages from CRAN. For example: This command downloads and
+installs the <code>ggplot2</code> package.</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span> </span></code></pre></div>
+<p><strong>Load the Package</strong>: After installation, load the package using:
+Once loaded, you can use its functions.</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> </span></code></pre></div>
+</li>
+</ol>
+</div>
+<div id="step-3-install-bioconductor-packages" class="section level3 unnumbered">
+<h3>Step 3: Install Bioconductor Packages<a class="anchor" aria-label="anchor" href="#step-3-install-bioconductor-packages"><i class="fas fa-link"></i></a>
+</h3>
+<p>Bioconductor hosts many bioinformatics packages. To install, follow
+these steps:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Install BiocManager</strong>:</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span> </span></code></pre></div>
+</li>
+<li>
+<p><strong>Install Bioinformatics Packages:</strong> Use <code><a href="https://bioconductor.github.io/BiocManager/reference/install.html">BiocManager::install()</a></code> to
+install Bioconductor packages. Example: This installs the <code>ggtree</code>
+package.</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://bioconductor.github.io/BiocManager/reference/install.html">install</a></span><span class="op">(</span><span class="st">"ggtree"</span><span class="op">)</span> </span></code></pre></div>
+</li>
+<li>
+<p><strong>Load the Package</strong>:</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.amazon.com/Integration-Manipulation-Visualization-Phylogenetic-Computational-ebook/dp/B0B5NLZR1Z/">ggtree</a></span><span class="op">)</span></span></code></pre></div>
+</li>
+</ol>
+</div>
+<div id="step-4-install-github-packages" class="section level3 unnumbered">
+<h3>Step 4: Install GitHub Packages<a class="anchor" aria-label="anchor" href="#step-4-install-github-packages"><i class="fas fa-link"></i></a>
+</h3>
+<p>Some specialized packages are hosted on GitHub. To install these:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Install <code>remotes</code> or <code>devtools</code></strong>:</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span> </span></code></pre></div>
+</li>
+<li>
+<p><strong>Install a Package from GitHub</strong>: Use <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github()</a></code>.
+For example: This installs the <code>circlize</code> package for circular
+visualization.</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"TeddYenn/ShiNyP_Test"</span><span class="op">)</span>  </span></code></pre></div>
+</li>
+<li>
+<p><strong>Load the Package</strong>:</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ShiNyP_Test</span><span class="op">)</span> </span></code></pre></div>
+</li>
+</ol>
+</div>
+<div id="step-5-update-r-packages" class="section level3 unnumbered">
+<h3>Step 5: Update R Packages<a class="anchor" aria-label="anchor" href="#step-5-update-r-packages"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>
+<p>To update all installed packages:</p>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/update.packages.html">update.packages</a></span><span class="op">(</span>ask <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> </span></code></pre></div>
+</li>
+</ol>
+<!-- --><ol start="2" style="list-style-type: decimal">
+<li>
+<p>For Bioconductor packages:</p>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://bioconductor.github.io/BiocManager/reference/install.html">install</a></span><span class="op">(</span>update <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
+</li>
+</ol>
+</div>
+<div id="step-6-uninstall-a-package-if-needed" class="section level3 unnumbered">
+<h3>Step 6: Uninstall a Package (If Needed)<a class="anchor" aria-label="anchor" href="#step-6-uninstall-a-package-if-needed"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you need to remove a package:</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/remove.packages.html">remove.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span> </span></code></pre></div>
+</div>
+<div id="summary-of-installation-methods" class="section level3 unnumbered">
+<h3>Summary of Installation Methods<a class="anchor" aria-label="anchor" href="#summary-of-installation-methods"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Source</th>
+<th>Command Example</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>CRAN</td>
+<td><code>install.packages("ggplot2")</code></td>
+</tr>
+<tr class="even">
+<td>Bioconductor</td>
+<td><code>BiocManager::install("ggtree")</code></td>
+</tr>
+<tr class="odd">
+<td>GitHub</td>
+<td><code>remotes::install_github("TeddYenn/ShiNyP_Test")</code></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<details><summary><strong>How to download the R &amp; RStudio</strong>
+</summary><p>HOW TO DOWNLOAD &amp; USE PLINK on TAMU HPRC</p>
+
+</details>
+</div>
+</details>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="sec-extra.html"><span class="header-section-number">5</span> Extra Analysis and Visualization</a></div>
+<div class="next"><a href="sec-summary.html"><span class="header-section-number">7</span> Summary</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li>
+<a class="nav-link" href="#sec-findings"><span class="header-section-number">6</span> Findings</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1-understand-r-packages">Step 1: Understand R Packages</a></li>
+<li><a class="nav-link" href="#step-2-install-cran-packages">Step 2: Install CRAN Packages</a></li>
+<li><a class="nav-link" href="#step-3-install-bioconductor-packages">Step 3: Install Bioconductor Packages</a></li>
+<li><a class="nav-link" href="#step-4-install-github-packages">Step 4: Install GitHub Packages</a></li>
+<li><a class="nav-link" href="#step-5-update-r-packages">Step 5: Update R Packages</a></li>
+<li><a class="nav-link" href="#step-6-uninstall-a-package-if-needed">Step 6: Uninstall a Package (If Needed)</a></li>
+<li><a class="nav-link" href="#summary-of-installation-methods">Summary of Installation Methods</a></li>
+</ul>
+</li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/TeddYenn/GWAS_RICE/blob/master/06-findings.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/TeddYenn/GWAS_RICE/edit/master/06-findings.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-23.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
