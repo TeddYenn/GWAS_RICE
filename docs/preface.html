@@ -77,16 +77,15 @@ to perform a GWAS in rice and is divided into seven sections. For
 absolute beginners, we’ve also included an introductory section on
 <a href="https://www.r-project.org/">R</a>,
 <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, and
-<a href="https://www.cog-genomics.org/plink/">PLINK</a>.</p>
+<a href="https://www.cog-genomics.org/plink/">PLINK</a>. <strong>-&gt; <a href="https://teddyenn.github.io/GWAS_RICE/preface.html#tutorial-for-r-rstudio-plink">Click
+Here!</a></strong></p>
 <p>This book was written in <a href="http://www.rstudio.com/ide/">RStudio</a> using
 <a href="http://bookdown.org/">bookdown</a>. The
 <a href="https://teddyenn.github.io/GWAS_RICE/">website</a> is hosted via GitHub
-under TeddYenn’s repository.</p>
+under <a href="https://github.com/TeddYenn">TeddYenn’s repository.</a></p>
 <p>If you have any questions or suggestions, feel free to reach out via
-email at <a href="mailto:teddy7305@gmail.com" class="email">teddy7305@gmail.com</a>
-(Teddy Huang) and
-<a href="mailto:eseptiningsih@tamu.edu">eseptiningsih@tamu.edu</a> (Dr.
-Septiningsih).</p>
+email at <a href="mailto:teddyenn2@gmail.com" class="email">teddyenn2@gmail.com</a>
+(Teddy Huang).</p>
 <div id="outline" class="section level2 unnumbered">
 <h2>Outline<a class="anchor" aria-label="anchor" href="#outline"><i class="fas fa-link"></i></a>
 </h2>
@@ -102,27 +101,31 @@ final GWAS data.</li>
 <strong>Chapter</strong> <a href="sec-phenotype-data.html#sec-phenotype-data">2</a> explores the phenotypic data
 and generate the final GWAS data.</li>
 <li>
-<strong>Chapter</strong> <a href="sec-gw.html#sec-gw">3</a> describes the tf-idf statistic (term
-frequency times inverse document frequency), a quantity used for
-identifying terms that are especially important to a particular
-document.</li>
+<strong>Chapter</strong> <a href="sec-gw.html#sec-gw">3</a> conduct the genome-wide association study
+(GWAS) to link genotypic variation with the phenotypic traits of
+interest.</li>
 <li>
-<strong>Chapter</strong> <a href="sec-post-gwas.html#sec-post-gwas">4</a> Under Construction…</li>
+<strong>Chapter</strong> <a href="sec-post-gwas.html#sec-post-gwas">4</a> delve into post-GWAS analyses that
+further dissect and validate the significant associations identified
+in the GWAS.</li>
 <li>
-<strong>Chapter</strong> <a href="sec-extra.html#sec-extra">5</a> explores the demographics, genetic
-pattern, and more.</li>
+<strong>Chapter</strong> <a href="sec-extra.html#sec-extra">5</a> present additional exploratory analyses
+that extend beyond the primary GWAS objectives.</li>
 </ul>
 <p>We provide the detailed findings and make some narratives about the
 results.</p>
 <ul>
 <li>
-<strong>Chapter</strong> <a href="sec-findings.html#sec-findings">6</a> Under Construction…</li>
+<strong>Chapter</strong> <a href="sec-findings.html#sec-findings">6</a> synthesize the key findings from the
+genotypic, phenotypic, GWAS, and post-GWAS analyses.</li>
 <li>
-<strong>Chapter</strong> <a href="sec-summary.html#sec-summary">7</a> Under Construction…</li>
+<strong>Chapter</strong> <a href="sec-summary.html#sec-summary">7</a> summarize the overall outcomes of the
+study, emphasizing major insights gained and acknowledging any
+limitations encountered.</li>
 </ul>
 </div>
-<div id="tutorial-for-r-rstudio-plink" class="section level2 unnumbered">
-<h2>Tutorial for R, RStudio &amp; PLINK<a class="anchor" aria-label="anchor" href="#tutorial-for-r-rstudio-plink"><i class="fas fa-link"></i></a>
+<div id="sec-tutorial-for-r-rstudio--plink" class="section level2 unnumbered">
+<h2>Tutorial for R, RStudio &amp; PLINK<a class="anchor" aria-label="anchor" href="#sec-tutorial-for-r-rstudio--plink"><i class="fas fa-link"></i></a>
 </h2>
 <details><summary><strong>How to download the R &amp; RStudio</strong>
 </summary><div class="rmdtip">
@@ -188,7 +191,8 @@ it.</p></li>
 and command history.</p></li>
 <li><p><strong>Plots/Files/Help (Bottom-right)</strong>: Displays plots, files, and R
 documentation.</p></li>
-</ol></details><details><summary><strong>How to download the R packages</strong>
+</ol>
+<hr></details><details><summary><strong>How to download the R packages</strong>
 </summary><p><strong>Step 1: Understand R Packages</strong></p>
 <p>R packages are collections of functions, data, and documentation that
 extend R’s capabilities. These packages are hosted on CRAN,
@@ -239,15 +243,14 @@ package.</p>
 </li>
 <li>
 <p><strong>Install a Package from GitHub</strong>: Use <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github()</a></code>.
-For example: This installs the <code>circlize</code> package for circular
-visualization.</p>
+For example: This installs the <code>GAPIT3</code> package for GWAS analysis.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"TeddYenn/ShiNyP_Test"</span><span class="op">)</span>  </span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"jiabowang/GAPIT3"</span><span class="op">)</span>  </span></code></pre></div>
 </li>
 <li>
 <p><strong>Load the Package</strong>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ShiNyP_Test</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">GAPIT3</span><span class="op">)</span> </span></code></pre></div>
 </li>
 </ol>
 <p><strong>Step 5: Update R Packages</strong></p>
@@ -286,16 +289,18 @@ visualization.</p>
 </tr>
 <tr class="odd">
 <td>GitHub</td>
-<td><code>remotes::install_github("TeddYenn/ShiNyP_Test")</code></td>
+<td><code>remotes::install_github("jiabowang/GAPIT3")</code></td>
 </tr>
 </tbody>
-</table></details><details><summary><strong>How to download and use PLINK</strong> <strong>on TAMU HPRC</strong>
+</table>
+<hr></details><details><summary><strong>How to download and use PLINK</strong> <strong>on TAMU HPRC</strong>
 </summary><p><strong>Step 1: Download the PLINK File</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Visit the <a href="https://www.cog-genomics.org/plink/1.9/">PLINK website</a>.</p></li>
 <li><p>Download the <strong>Linux 64-bit</strong> version, which is compatible with the
-<a href="https://hprc.tamu.edu/kb/User-Guides/FASTER/Hardware/">FASTER
-system</a>.</p></li>
+<a href="https://hprc.tamu.edu/kb/User-Guides/FASTER/Hardware/">FASTER</a> and
+<a href="https://hprc.tamu.edu/kb/User-Guides/Grace/Hardware/">Grace</a>
+system.</p></li>
 </ol>
 <p><strong>Step 2: Extract and Upload the PLINK File to TAMU HPRC</strong></p>
 <ol style="list-style-type: decimal">
@@ -305,7 +310,8 @@ system</a>.</p></li>
 method you prefer. For example:</p>
 <ul>
 <li><p>Create an <code>Upload</code> folder in your home directory
-(<code>/home/&lt;username&gt;/Upload</code>).</p></li>
+(<code>/home/&lt;username&gt;/Upload</code>) or scratch
+(<code>/scratch/user/&lt;username&gt;/Upload</code>).</p></li>
 <li><p>Place the PLINK folder (<code>plink_linux_x86_64</code>) inside this
 directory.</p></li>
 </ul>
@@ -314,20 +320,20 @@ directory.</p></li>
 <p><strong>Step 3: Open the Terminal on TAMU HPRC</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Log in to the TAMU HPRC portal.</p></li>
-<li><p>Navigate to your working directory where the PLINK file was
-uploaded.</p></li>
+<li><p>Navigate to your working directory where the PLINK file was uploaded
+(e.g. <code>/home/&lt;username&gt;/Upload/plink_linux_x86_64</code>).</p></li>
 <li><p>Click <strong><code>&gt;_ Open in Terminal</code></strong> to access the terminal interface.</p></li>
 </ol>
 <p><strong>Step 4: Verify Your Current Directory</strong></p>
 <ol style="list-style-type: decimal">
 <li>
-<p>Run the command after $</p>
+<p>In the terminal, run the command after $</p>
 <pre><code>pwd </code></pre>
 </li>
 <li>
 <p>Confirm that you are in the directory where the PLINK file is
 located. For example:</p>
-<pre><code> /home/teddy.yh.huang/Upload/plink_linux_x86_64 </code></pre>
+<pre><code> /home/&lt;username&gt;/Upload/plink_linux_x86_64 </code></pre>
 </li>
 </ol>
 <p><strong>Step 5: Make the PLINK File Executable and Test It</strong></p>
@@ -338,8 +344,8 @@ located. For example:</p>
 </li>
 <li>
 <p>Run the following commands:</p>
-<pre><code>chmod +x plink 
-./plink --help </code></pre>
+<pre><code>chmod +x plink</code></pre>
+<pre><code>./plink --help</code></pre>
 <ul>
 <li>
 <strong><code>chmod +x plink</code></strong>: Grants the PLINK file executable
@@ -367,7 +373,8 @@ working directory (<code>/home/&lt;username&gt;/Upload/plink_linux_x86_64</code>
 <!-- --><ol start="2" style="list-style-type: decimal">
 <li>This will generate a VCF file named <code>data.vcf</code> in your current
 directory.</li>
-</ol></details>
+</ol>
+<hr></details>
 </div>
 <div id="acknowledgements" class="section level2 unnumbered">
 <h2>Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"><i class="fas fa-link"></i></a>
@@ -392,7 +399,7 @@ partial financial support for this research program.</p>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#preface">Preface</a></li>
 <li><a class="nav-link" href="#outline">Outline</a></li>
-<li><a class="nav-link" href="#tutorial-for-r-rstudio-plink">Tutorial for R, RStudio &amp; PLINK</a></li>
+<li><a class="nav-link" href="#sec-tutorial-for-r-rstudio--plink">Tutorial for R, RStudio &amp; PLINK</a></li>
 <li><a class="nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
 
@@ -411,7 +418,7 @@ partial financial support for this research program.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-23.</p>
+    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

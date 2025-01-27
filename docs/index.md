@@ -2,7 +2,7 @@
 title: "GWAS Tutorial"
 subtitle: "For Anaerobic Germination in Rice"
 author: "Yen-Hsiang (Teddy) Huang"
-date: "2025-01-23"
+date: "2025-01-27"
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: bookdown::bs4_book
@@ -60,18 +60,17 @@ to perform a GWAS in rice and is divided into seven sections. For
 absolute beginners, we’ve also included an introductory section on
 [R](https://www.r-project.org/),
 [RStudio](https://posit.co/download/rstudio-desktop/), and
-[PLINK](https://www.cog-genomics.org/plink/).
+[PLINK](https://www.cog-genomics.org/plink/). **-\> [Click
+Here!](https://teddyenn.github.io/GWAS_RICE/preface.html#tutorial-for-r-rstudio-plink)**
 
 This book was written in [RStudio](http://www.rstudio.com/ide/) using
 [bookdown](http://bookdown.org/). The
 [website](https://teddyenn.github.io/GWAS_RICE/) is hosted via GitHub
-under TeddYenn's repository.
+under [TeddYenn's repository.](https://github.com/TeddYenn)
 
 If you have any questions or suggestions, feel free to reach out via
-email at [teddy7305\@gmail.com](mailto:teddy7305@gmail.com){.email}
-(Teddy Huang) and
-[eseptiningsih\@tamu.edu](mailto:eseptiningsih@tamu.edu) (Dr.
-Septiningsih).
+email at [teddyenn2\@gmail.com](mailto:teddyenn2@gmail.com){.email}
+(Teddy Huang).
 
 ## Outline {.unnumbered}
 
@@ -84,21 +83,25 @@ interpretations of the results.
     final GWAS data.
 -   **Chapter** \@ref(sec-phenotype-data) explores the phenotypic data
     and generate the final GWAS data.
--   **Chapter** \@ref(sec-gw) describes the tf-idf statistic (term
-    frequency times inverse document frequency), a quantity used for
-    identifying terms that are especially important to a particular
-    document.
--   **Chapter** \@ref(sec-post-gwas) Under Construction...
--   **Chapter** \@ref(sec-extra) explores the demographics, genetic
-    pattern, and more.
+-   **Chapter** \@ref(sec-gw) conduct the genome-wide association study
+    (GWAS) to link genotypic variation with the phenotypic traits of
+    interest.
+-   **Chapter** \@ref(sec-post-gwas) delve into post-GWAS analyses that
+    further dissect and validate the significant associations identified
+    in the GWAS.
+-   **Chapter** \@ref(sec-extra) present additional exploratory analyses
+    that extend beyond the primary GWAS objectives.
 
 We provide the detailed findings and make some narratives about the
 results.
 
--   **Chapter** \@ref(sec-findings) Under Construction...
--   **Chapter** \@ref(sec-summary) Under Construction...
+-   **Chapter** \@ref(sec-findings) synthesize the key findings from the
+    genotypic, phenotypic, GWAS, and post-GWAS analyses.
+-   **Chapter** \@ref(sec-summary) summarize the overall outcomes of the
+    study, emphasizing major insights gained and acknowledging any
+    limitations encountered.
 
-## Tutorial for R, RStudio & PLINK {.unnumbered}
+## Tutorial for R, RStudio & PLINK {#sec-tutorial-for-r-rstudio--plink .unnumbered}
 
 <details>
 
@@ -170,6 +173,8 @@ RStudio has four main panels:
 4.  **Plots/Files/Help (Bottom-right)**: Displays plots, files, and R
     documentation.
 
+------------------------------------------------------------------------
+
 </details>
 
 <details>
@@ -235,17 +240,16 @@ Some specialized packages are hosted on GitHub. To install these:
     ```
 
 2.  **Install a Package from GitHub**: Use `remotes::install_github()`.
-    For example: This installs the `circlize` package for circular
-    visualization.
+    For example: This installs the `GAPIT3` package for GWAS analysis.
 
     ``` r
-    remotes::install_github("TeddYenn/ShiNyP_Test")  
+    remotes::install_github("jiabowang/GAPIT3")  
     ```
 
 3.  **Load the Package**:
 
     ``` r
-    library(ShiNyP_Test) 
+    library(GAPIT3) 
     ```
 
 **Step 5: Update R Packages**
@@ -274,11 +278,13 @@ remove.packages("ggplot2")
 
 **Summary of Installation Methods**
 
-| Source       | Command Example                                   |
-|--------------|---------------------------------------------------|
-| CRAN         | `install.packages("ggplot2")`                     |
-| Bioconductor | `BiocManager::install("ggtree")`                  |
-| GitHub       | `remotes::install_github("TeddYenn/ShiNyP_Test")` |
+| Source       | Command Example                               |
+|--------------|-----------------------------------------------|
+| CRAN         | `install.packages("ggplot2")`                 |
+| Bioconductor | `BiocManager::install("ggtree")`              |
+| GitHub       | `remotes::install_github("jiabowang/GAPIT3")` |
+
+------------------------------------------------------------------------
 
 </details>
 
@@ -291,8 +297,9 @@ remove.packages("ggplot2")
 1.  Visit the [PLINK website](https://www.cog-genomics.org/plink/1.9/).
 
 2.  Download the **Linux 64-bit** version, which is compatible with the
-    [FASTER
-    system](https://hprc.tamu.edu/kb/User-Guides/FASTER/Hardware/).
+    [FASTER](https://hprc.tamu.edu/kb/User-Guides/FASTER/Hardware/) and
+    [Grace](https://hprc.tamu.edu/kb/User-Guides/Grace/Hardware/)
+    system.
 
 **Step 2: Extract and Upload the PLINK File to TAMU HPRC**
 
@@ -302,7 +309,8 @@ remove.packages("ggplot2")
     method you prefer. For example:
 
     -   Create an `Upload` folder in your home directory
-        (`/home/<username>/Upload`).
+        (`/home/<username>/Upload`) or scratch
+        (`/scratch/user/<username>/Upload`).
 
     -   Place the PLINK folder (`plink_linux_x86_64`) inside this
         directory.
@@ -311,14 +319,14 @@ remove.packages("ggplot2")
 
 1.  Log in to the TAMU HPRC portal.
 
-2.  Navigate to your working directory where the PLINK file was
-    uploaded.
+2.  Navigate to your working directory where the PLINK file was uploaded
+    (e.g. `/home/<username>/Upload/plink_linux_x86_64`).
 
 3.  Click **`>_ Open in Terminal`** to access the terminal interface.
 
 **Step 4: Verify Your Current Directory**
 
-1.  Run the command after \$
+1.  In the terminal, run the command after \$
 
     ```         
     pwd 
@@ -328,7 +336,7 @@ remove.packages("ggplot2")
     located. For example:
 
     ```         
-     /home/teddy.yh.huang/Upload/plink_linux_x86_64 
+     /home/<username>/Upload/plink_linux_x86_64 
     ```
 
 **Step 5: Make the PLINK File Executable and Test It**
@@ -342,8 +350,11 @@ remove.packages("ggplot2")
 -   Run the following commands:
 
     ```         
-    chmod +x plink 
-    ./plink --help 
+    chmod +x plink
+    ```
+
+    ```         
+    ./plink --help
     ```
 
     -   **`chmod +x plink`**: Grants the PLINK file executable
@@ -371,6 +382,8 @@ remove.packages("ggplot2")
 
 2.  This will generate a VCF file named `data.vcf` in your current
     directory.
+
+------------------------------------------------------------------------
 
 </details>
 

@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>3 GWAS | GWAS Tutorial</title>
 <meta name="author" content="Yen-Hsiang (Teddy) Huang">
-<meta name="description" content="Conduct GWAS Analysis and Collect All Results Preview the GWAS Results  3.1 GWAS Analysis We used the GAPIT R package, which offers multiple GWAS models, to conduct GWAS analyses. Four separate...">
+<meta name="description" content="In this chapter, we conduct the genome-wide association study (GWAS) to link genotypic variation with the phenotypic traits of interest. By systematically scanning the genome for marker-trait...">
 <meta name="generator" content="bookdown 0.40 with bs4_book()">
 <meta property="og:title" content="3 GWAS | GWAS Tutorial">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://github.com/TeddYenn/GWAS_RICE/sec-gw.html">
 <meta property="og:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
-<meta property="og:description" content="Conduct GWAS Analysis and Collect All Results Preview the GWAS Results  3.1 GWAS Analysis We used the GAPIT R package, which offers multiple GWAS models, to conduct GWAS analyses. Four separate...">
+<meta property="og:description" content="In this chapter, we conduct the genome-wide association study (GWAS) to link genotypic variation with the phenotypic traits of interest. By systematically scanning the genome for marker-trait...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3 GWAS | GWAS Tutorial">
-<meta name="twitter:description" content="Conduct GWAS Analysis and Collect All Results Preview the GWAS Results  3.1 GWAS Analysis We used the GAPIT R package, which offers multiple GWAS models, to conduct GWAS analyses. Four separate...">
+<meta name="twitter:description" content="In this chapter, we conduct the genome-wide association study (GWAS) to link genotypic variation with the phenotypic traits of interest. By systematically scanning the genome for marker-trait...">
 <meta name="twitter:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -69,6 +69,16 @@
 <h1>
 <span class="header-section-number">3</span> GWAS<a class="anchor" aria-label="anchor" href="#sec-gw"><i class="fas fa-link"></i></a>
 </h1>
+<div class="rmdtip">
+<p>
+In this chapter, we conduct the genome-wide association study (GWAS)
+to link genotypic variation with the phenotypic traits of interest. By
+systematically scanning the genome for marker-trait associations, we
+identify loci that may influence the traits in question. The chapter
+concludes with initial interpretations of the significant associations
+discovered.
+</p>
+</div>
 <ol style="list-style-type: decimal">
 <li><p><strong>Conduct GWAS Analysis and Collect All Results</strong></p></li>
 <li><p><strong>Preview the GWAS Results</strong></p></li>
@@ -79,18 +89,18 @@
 </h2>
 <p>We used the <a href="https://zzlab.net/GAPIT/gapit_help_document.pdf"><strong>GAPIT</strong></a>
 R package, which offers multiple GWAS models, to conduct GWAS analyses.</p>
-<p>Four separate GWAS results were stored in files GWAS1 through GWAS4. In
-each analysis, we applied five models simultaneously: GLM, MLM, MLMM,
-FarmCPU, and BLINK.</p>
+<p>Four separate GWAS results (<code>PCA.total = 2, 3, 4, 5</code>) were stored in
+files <code>GWAS_PC2</code> through <code>GWAS_PC5</code>. Create the GWAS_PC2, GWAS_PC3,
+GWAS_PC4, GWAS_PC5 folder in your directory. In each analysis, we
+applied five models simultaneously: GLM, MLM, MLMM, FarmCPU, and BLINK.</p>
 <div class="rmdnote">
 <p>
 Genotypic dataset (Geno.rds): 327 samples and 1.9 million SNPs.
 Phenotypic dataset (Pheno.rds): 327 samples and 3 traits.
 </p>
 </div>
-<details><summary>
-➡️ <strong>Working on R (RStudio)</strong>
-</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<details><summary><strong>R</strong> ➡️ <strong>GWAS analysis with GAPIT</strong>
+</summary><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">##### R CODES #####</span></span>
 <span></span>
 <span><span class="co"># Set the working directory for initial setup</span></span>
@@ -99,9 +109,11 @@ Phenotypic dataset (Pheno.rds): 327 samples and 3 traits.
 <span><span class="co"># Load genotype and phenotype data</span></span>
 <span><span class="va">Geno</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"Geno.rds"</span><span class="op">)</span></span>
 <span><span class="va">Pheno</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"Pheno.rds"</span><span class="op">)</span> </span>
-<span><span class="co"># 4 traits: Control_AG_14DAS; Control_AG_7DAS; AG_14DAS; AG_7DAS</span></span>
+<span><span class="co"># 3 traits: AG_14DAS; Control_AG_14DAS; Logit_Control_AG_14DAS</span></span>
 <span></span>
-<span><span class="co"># Load the GAPIT library for GWAS analysis</span></span>
+<span><span class="co"># Load the GAPIT library for GWAS analysis </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"jiabowang/GAPIT"</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">GAPIT</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Set the working directory for GWAS_PC2 analysis</span></span>
@@ -162,15 +174,15 @@ Manhattan plots for each model and specific phenotypic trait.</p></li>
 </ul>
 <p>Here are the results: We only included significant SNP markers from
 <strong>FarmCPU</strong> and <strong>BLINK</strong> (the newest models) that were associated with
-<strong>Logit_Control_AG_14DAS</strong> (log-transformed data of the difference in
-seed germination rates between control and treatment groups at 14 days).</p>
+<strong>Control_AG_14DAS</strong> (the difference in seed germination rates between
+control and treatment groups at 14 days).</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
-<th>File name</th>
-<th><em>GWAS_PC1</em></th>
+<th>Filename</th>
 <th><em>GWAS_PC2</em></th>
 <th><em>GWAS_PC3</em></th>
 <th><em>GWAS_PC4</em></th>
+<th><em>GWAS_PC5</em></th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -182,17 +194,90 @@ seed germination rates between control and treatment groups at 14 days).</p>
 </tr>
 <tr class="even">
 <td>FarmCPU</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>0</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
 </tr>
 <tr class="odd">
 <td>BLINK</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong><em>GWAS_PC2</em></strong></p>
+<ul>
+<li>BLINK: Chr02: 24380499; Chr03: 17005606; Chr03: 32521809; Chr10:
+15165249</li>
+</ul>
+</li>
+<li>
+<p><strong><em>GWAS_PC3</em></strong></p>
+<ul>
+<li><p>FarmCPU: Chr03: 17005606; Chr07: 18136942; Chr07: 22535556;
+Chr10: 19883513; Chr11: 18075487</p></li>
+<li><p>BLINK: Chr03: 17005606; Chr03: 32521809; Chr10: 15162418</p></li>
+</ul>
+</li>
+<li>
+<p><strong><em>GWAS_PC4</em></strong></p>
+<ul>
+<li><p>FarmCPU: Chr03: 17000165; Chr06: 12865843; Chr06: 27384104;
+Chr10: 19883513</p></li>
+<li><p>BLINK: Chr03: 17005606; Chr03: 32521809; Chr9: 12290639</p></li>
+</ul>
+</li>
+<li>
+<p><strong><em>GWAS_PC5</em></strong></p>
+<ul>
+<li><p>FarmCPU: Chr01: 37357384; Chr03: 17005606; Chr10: 19883513</p></li>
+<li><p>BLINK: Chr03: 17005606; Chr03: 32521809; Chr10: 15165249</p></li>
+</ul>
+</li>
+</ol>
+<div class="inline-table"><table style="width:96%;" class="table table-sm">
+<colgroup>
+<col width="13%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
+</colgroup>
+<thead><tr class="header">
+<th>Marker</th>
+<th>Chr03:
+17005606</th>
+<th>Chr03:
+32521809</th>
+<th>Chr10:
+15162418</th>
+<th>Chr10:
+19883513</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>FarmCPU</td>
+<td>3 [PC3~5]</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>BLINK</td>
+<td>3 [PC3~5]<br>
+1*(Chr03:
+17005606)
+[PC2]</td>
+<td>4 [PC2~5]</td>
+<td>3 [PC2, 3,
+5]</td>
+<td>0 [PC3, 4,
+5]</td>
 </tr>
 </tbody>
 </table></div>
@@ -224,7 +309,7 @@ seed germination rates between control and treatment groups at 14 days).</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-23.</p>
+    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

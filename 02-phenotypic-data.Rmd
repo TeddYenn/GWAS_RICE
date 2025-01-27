@@ -6,13 +6,17 @@ editor_options:
 
 # Phenotype Data {#sec-phenotype-data}
 
+```{block, type = "rmdtip"}
+In this chapter, we explore the phenotypic data that will be used alongside the genotypic data for GWAS. We start by examining descriptive statistics, identifying difference, and implementing transformation to handle non-normal data. We then finalize the phenotype dataset by selecting three traits. The outcome is a curated phenotypic dataset, ready for integration with the genotype data in subsequent analyses.
+```
+
 1.  **Phenotypic Data Processing**
 
 2.  **Phenotypic Data Visualization**
 
 3.  **Prepare Final Phenotypic Data**
 
-## **Phenotypic Data Processing** 
+## **Phenotypic Data Processing**
 
 We aim to process and clean phenotypic data for a dataset called
 **Pheno_327_ranked**. This dataset contains measurements of various
@@ -29,7 +33,7 @@ representing the difference between control and treatment phenotypes at
 
 <details>
 
-<summary>➡️ **Working on R (RStudio)**</summary>
+<summary>**R** ➡️ **Explore** **Phenotypic Data**</summary>
 
 ``` r
 ##### R CODES #####
@@ -72,12 +76,6 @@ plot(density(Logit_Control_AG_14DAS), main="Density plot for logit transformed d
 qqnorm(data, main = "Q-Q plot for logit transformed data (Logit_Control_AG_14DAS)")
 qqline(data, col = "red", lwd = 2)
 ```
-
-</details>
-
-<details>
-
-<summary>**Results**</summary>
 
 -   **AG_14DAS:**
 
@@ -123,7 +121,7 @@ between:
 
 <details>
 
-<summary>➡️ **Working on R (RStudio)**</summary>
+<summary>**R** ➡️ **Phenotypic Data Visualization**</summary>
 
 ``` r
 ##### R CODES #####
@@ -241,12 +239,6 @@ ggplot(data, aes(x = group, y = value, group = group)) +
   annotate("text", x = 1.5, y = 110, label = paste("***"), size = 6, hjust = 0.5) # 5 x 5
 ```
 
-</details>
-
-<details>
-
-<summary>**Outputs**</summary>
-
 1.  Seed germination on measurement under control and treatment (7-day)
 
     ![](images/clipboard-2429305611.png){width="500"}
@@ -270,7 +262,7 @@ We generate the final phenotypic data for GWAS analysis. The resulting
 
 <details>
 
-<summary>➡️ **Working on R (RStudio)**</summary>
+<summary>**R ➡️ Generate final phenotypic data**</summary>
 
 ``` r
 ##### R CODES #####
@@ -291,11 +283,7 @@ Pheno = data.frame(Taxa = paste(Pheno_327_ranked$DNA_ID, Pheno_327_ranked$DNA_ID
 saveRDS(Pheno, "Pheno.rds") # Final data
 ```
 
-</details>
-
-<details>
-
-<summary>**Outputs**</summary>
+**Outputs:**
 
 -   **Pheno.rds**\
     Phenotypic dataset in ‘data.frame’ format stored in `.rds` file.

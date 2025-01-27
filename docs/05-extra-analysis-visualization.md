@@ -4,7 +4,7 @@
 
 Create a world map showcasing the percentage distribution of the origins of 327 rice samples, represented using a gradient color scale.
 
-![](images/clipboard-1499951598.png){width="600"}
+![](images/clipboard-2488101092.png){width="600"}
 
 <details>
 
@@ -113,7 +113,7 @@ ggplot(data = worldSubset, mapping = aes(x = long, y = lat, group = group)) +
 
 Computation and visualization of LD decay. First, utilizes PLINK to thin SNPs (10%) and calculate pairwise LD (r²) within specified distance windows (1000 Kb). Then, Analyzes PLINK output to compute average r² across distance intervals (`window.size`), summarizing LD decay patterns. Finally, generates a smooth LD decay plot, highlighting the relationship between physical distance (kb) and LD (r²).
 
-![](images/clipboard-2982375851.png){width="600"}
+![](images/clipboard-1293943923.png){width="600"}
 
 <details>
 
@@ -222,9 +222,9 @@ ggplot(LD.decay) +
 
 ## Genetic Pattern
 
-![](images/clipboard-1482032998.png){width="600"}
+![](images/clipboard-3624431600.png){width="600"}
 
-![](images/clipboard-2271077002.png){width="600"}
+![](images/clipboard-1226366294.png){width="600"}
 
 <details>
 
@@ -379,7 +379,7 @@ Match the accession IDs between the phenotypic data and SNP datasets. We identif
 2.  The format of ID names in the Mapping Table is inconsistent with the format used in the phenotype data. For example, consider a sample named `EX WUKARI (WILD)::IRGC 63214-3`:
 
     | ID in Phenotype | ID in [Mapping Table](https://3kricegenome.s3.us-east-1.amazonaws.com/kaust_irri_3k_16refs/3K_list_sra_ids.txt) | ID in Genotype |
-    |------------------------|------------------------|------------------------|
+    |----|----|----|
     | EX WUKARI (WILD)::IRGC 63214-3 | EX_WUKARI\_(WILD)::IRGC_63214-1 | IRIS_313-11657 |
     |  | IRIS_313-11657 |  |
 

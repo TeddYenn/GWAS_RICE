@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>2 Phenotype Data | GWAS Tutorial</title>
 <meta name="author" content="Yen-Hsiang (Teddy) Huang">
-<meta name="description" content="Phenotypic Data Processing Phenotypic Data Visualization Prepare Final Phenotypic Data  2.1 Phenotypic Data Processing We aim to process and clean phenotypic data for a dataset called...">
+<meta name="description" content="In this chapter, we explore the phenotypic data that will be used alongside the genotypic data for GWAS. We start by examining descriptive statistics, identifying difference, and implementing...">
 <meta name="generator" content="bookdown 0.40 with bs4_book()">
 <meta property="og:title" content="2 Phenotype Data | GWAS Tutorial">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://github.com/TeddYenn/GWAS_RICE/sec-phenotype-data.html">
 <meta property="og:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
-<meta property="og:description" content="Phenotypic Data Processing Phenotypic Data Visualization Prepare Final Phenotypic Data  2.1 Phenotypic Data Processing We aim to process and clean phenotypic data for a dataset called...">
+<meta property="og:description" content="In this chapter, we explore the phenotypic data that will be used alongside the genotypic data for GWAS. We start by examining descriptive statistics, identifying difference, and implementing...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2 Phenotype Data | GWAS Tutorial">
-<meta name="twitter:description" content="Phenotypic Data Processing Phenotypic Data Visualization Prepare Final Phenotypic Data  2.1 Phenotypic Data Processing We aim to process and clean phenotypic data for a dataset called...">
+<meta name="twitter:description" content="In this chapter, we explore the phenotypic data that will be used alongside the genotypic data for GWAS. We start by examining descriptive statistics, identifying difference, and implementing...">
 <meta name="twitter:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -69,6 +69,16 @@
 <h1>
 <span class="header-section-number">2</span> Phenotype Data<a class="anchor" aria-label="anchor" href="#sec-phenotype-data"><i class="fas fa-link"></i></a>
 </h1>
+<div class="rmdtip">
+<p>
+In this chapter, we explore the phenotypic data that will be used
+alongside the genotypic data for GWAS. We start by examining descriptive
+statistics, identifying difference, and implementing transformation to
+handle non-normal data. We then finalize the phenotype dataset by
+selecting three traits. The outcome is a curated phenotypic dataset,
+ready for integration with the genotype data in subsequent analyses.
+</p>
+</div>
 <ol style="list-style-type: decimal">
 <li><p><strong>Phenotypic Data Processing</strong></p></li>
 <li><p><strong>Phenotypic Data Visualization</strong></p></li>
@@ -89,9 +99,8 @@ GWAS. The dataset being processed (i.e. logit transformation) contains
 phenotypic measurements, specifically the variable <code>Control_AG_14DAS</code>,
 representing the difference between control and treatment phenotypes at
 14 days after sowing.</p>
-<details><summary>
-➡️ <strong>Working on R (RStudio)</strong>
-</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<details><summary><strong>R</strong> ➡️ <strong>Explore</strong> <strong>Phenotypic Data</strong>
+</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">##### R CODES #####</span></span>
 <span></span>
 <span><span class="co"># Set the working directory</span></span>
@@ -131,8 +140,7 @@ representing the difference between control and treatment phenotypes at
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">Logit_Control_AG_14DAS</span><span class="op">)</span>, main<span class="op">=</span><span class="st">"Density plot for logit transformed data (Logit_Control_AG_14DAS)"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">data</span>, main <span class="op">=</span> <span class="st">"Q-Q plot for logit transformed data (Logit_Control_AG_14DAS)"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">data</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-</details><details><summary><strong>Results</strong>
-</summary><ul>
+<ul>
 <li>
 <p><strong>AG_14DAS:</strong></p>
 <div class="inline-figure"><img src="images/clipboard-2948542824.png" width="400"></div>
@@ -168,9 +176,8 @@ between:</p>
 <li><p>Control and treatment groups at 14 days.</p></li>
 <li><p>Comparison of seed germination at 7 days versus 14 days.</p></li>
 </ul>
-<details><summary>
-➡️ <strong>Working on R (RStudio)</strong>
-</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<details><summary><strong>R</strong> ➡️ <strong>Phenotypic Data Visualization</strong>
+</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">##### R CODES #####</span></span>
 <span></span>
 <span><span class="co"># Set the working directory</span></span>
@@ -284,8 +291,7 @@ between:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">1</span>, xend <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">108</span>, yend <span class="op">=</span> <span class="fl">105</span>, linewidth <span class="op">=</span> <span class="fl">0.8</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">2</span>, xend <span class="op">=</span> <span class="fl">2</span>, y <span class="op">=</span> <span class="fl">108</span>, yend <span class="op">=</span> <span class="fl">105</span>, linewidth <span class="op">=</span> <span class="fl">0.8</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">1.5</span>, y <span class="op">=</span> <span class="fl">110</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"***"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">6</span>, hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="co"># 5 x 5</span></span></code></pre></div>
-</details><details><summary><strong>Outputs</strong>
-</summary><ol style="list-style-type: decimal">
+<ol style="list-style-type: decimal">
 <li>
 <p>Seed germination on measurement under control and treatment (7-day)</p>
 <div class="inline-figure"><img src="images/clipboard-2429305611.png" width="500"></div>
@@ -306,9 +312,8 @@ between:</p>
 </h2>
 <p>We generate the final phenotypic data for GWAS analysis. The resulting
 <code>Pheno</code> object is optimized for seamless use in GWAS workflows.</p>
-<details><summary>
-➡️ <strong>Working on R (RStudio)</strong>
-</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<details><summary><strong>R ➡️ Generate final phenotypic data</strong>
+</summary><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">##### R CODES #####</span></span>
 <span></span>
 <span><span class="co"># Set the working directory</span></span>
@@ -325,8 +330,8 @@ between:</p>
 <span></span>
 <span><span class="co"># Save the new data frame as an RDS file for future use</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">Pheno</span>, <span class="st">"Pheno.rds"</span><span class="op">)</span> <span class="co"># Final data</span></span></code></pre></div>
-</details><details><summary><strong>Outputs</strong>
-</summary><ul>
+<p><strong>Outputs:</strong></p>
+<ul>
 <li>
 <strong>Pheno.rds</strong><br>
 Phenotypic dataset in ‘data.frame’ format stored in <code>.rds</code> file.
@@ -378,7 +383,7 @@ days.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-23.</p>
+    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
