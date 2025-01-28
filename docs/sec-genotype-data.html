@@ -174,8 +174,8 @@ dataset (IRRI_18M_3024), the dataset is filtered for missingness,
 reducing it to 10 million SNPs, and further refined based on minor
 allele frequency (MAF) to approximately 1.9 million high-quality SNPs,
 ready for GWAS.</p>
-<details><summary><strong>R/PLINK</strong> ➡️ <strong>STEP 1: Exract samples</strong> <strong>(IRRI_18M_3024 →</strong>
-<strong>IRRI_18M_327)</strong>
+<details><summary><strong>R/PLINK</strong> ➡️ <strong>STEP 1: Extracting samples</strong> <strong>(IRRI_18M_3024
+→</strong> <strong>IRRI_18M_327)</strong>
 </summary><div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="sec-genotype-data.html#cb19-1" tabindex="-1"></a><span class="do">##### PLINK COMMANDS #####  </span></span>
 <span id="cb19-2"><a href="sec-genotype-data.html#cb19-2" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="sec-genotype-data.html#cb19-3" tabindex="-1"></a><span class="co"># Change your path into the directory of the '3K RG 18mio Base SNP Dataset (IRRI_18M_3024)' </span></span>
@@ -299,14 +299,15 @@ IRRI_1.9M_327)</strong>
 <p>Prepare the final genotypic data for GWAS analysis. We now need to
 convert the QC-passed SNP data in PLINK format (<code>.bed</code>, <code>.bim</code>, and
 <code>.fam</code>) into HapMap format, compatible with the GAPIT package.</p>
-<details><summary><strong>PLINK</strong> ➡️ <strong>STEP1: Convert into VCF file</strong>
+<details><summary><strong>PLINK</strong> ➡️ <strong>STEP1: Converting PLINK <code>bfile</code> into VCF
+file</strong>
 </summary><div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="sec-genotype-data.html#cb30-1" tabindex="-1"></a><span class="do">##### PLINK COMMANDS #####</span></span>
 <span id="cb30-2"><a href="sec-genotype-data.html#cb30-2" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="sec-genotype-data.html#cb30-3" tabindex="-1"></a><span class="co"># Change your path into the directory of the 'IRRI_1.9M_327'</span></span>
 <span id="cb30-4"><a href="sec-genotype-data.html#cb30-4" tabindex="-1"></a><span class="co"># cd ...your file path...</span></span>
 <span id="cb30-5"><a href="sec-genotype-data.html#cb30-5" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_1<span class="fl">.9</span>M_327 <span class="sc">--</span>recode vcf <span class="sc">--</span>out IRRI_1<span class="fl">.9</span>M_327</span></code></pre></div>
-</details><details><summary><strong>R</strong> ➡️ <strong>STEP2: Convert into HapMap file and store in RDS
-format</strong>
+</details><details><summary><strong>R</strong> ➡️ <strong>STEP2: Converting VCF into HapMap file and store in
+RDS format</strong>
 </summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">##### R CODES #####</span></span>
 <span></span>
@@ -370,7 +371,7 @@ samples and 1.9 million SNPs.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-27.</p>
+    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

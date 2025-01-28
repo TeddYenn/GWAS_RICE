@@ -12,14 +12,13 @@ sec-gw
 gwas-analysis
 preview-the-gwas-results
 sec-post-gwas
-aaa
-bb
+chr03-17005606
+chr03-32521809
+chr10-15162418
 sec-extra
 geographic-information
 linkage-disequilibrium-ld-decay-across-genome
 genetic-pattern
-backup
-align-accession-ids-1
 sec-findings
 sec-summary
 download-rice-snp-data-from-snp-seek-3k-rg-1

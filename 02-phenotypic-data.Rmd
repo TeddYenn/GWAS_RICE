@@ -33,7 +33,7 @@ representing the difference between control and treatment phenotypes at
 
 <details>
 
-<summary>**R** ➡️ **Explore** **Phenotypic Data**</summary>
+<summary>**R** ➡️ **Exploring** **Phenotypic Data**</summary>
 
 ``` r
 ##### R CODES #####
@@ -262,7 +262,7 @@ We generate the final phenotypic data for GWAS analysis. The resulting
 
 <details>
 
-<summary>**R ➡️ Generate final phenotypic data**</summary>
+<summary>**R ➡️ Generating final phenotypic data**</summary>
 
 ``` r
 ##### R CODES #####

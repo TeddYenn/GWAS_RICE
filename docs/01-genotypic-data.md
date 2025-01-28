@@ -40,7 +40,7 @@ Data repository for the 3K RG, hosted by IRRI:
 
 Please download the PLINK `.bed`, `.bim`, and `.fam` files for **3K RG
 18mio Base SNP Dataset**. After downloading, extract the files and
-rename them as `IRRI_18M_3024``.bed`, `IRRI_18M_3024.bim`, and
+rename them as ``` IRRI_18M_3024``.bed ```, `IRRI_18M_3024.bim`, and
 `IRRI_18M_3024.fam` files. Also, download and save the [**Mapping
 table**](https://3kricegenome.s3.us-east-1.amazonaws.com/kaust_irri_3k_16refs/3K_list_sra_ids.txt)
 in a `.csv` file for reference.
@@ -119,8 +119,8 @@ ready for GWAS.
 
 <details>
 
-<summary>**R/PLINK** ➡️ **STEP 1: Exract samples** **(IRRI_18M_3024 →**
-**IRRI_18M_327)** </summary>
+<summary>**R/PLINK** ➡️ **STEP 1: Extracting samples** **(IRRI_18M_3024
+→** **IRRI_18M_327)**</summary>
 
 ``` r
 ##### PLINK COMMANDS #####  
@@ -140,7 +140,7 @@ cd ...your file path...
 <details>
 
 <summary>**R/PLINK** ➡️ **STEP 2:** **QC for SNP missingness**
-**(IRRI_18M_327 → IRRI_10M_327)** </summary>
+**(IRRI_18M_327 → IRRI_10M_327)**</summary>
 
 ``` r
 ##### PLINK COMMANDS #####
@@ -219,7 +219,7 @@ hist(SNP_miss$F_MISS, main = "Histogram of SNP missing rate of IRRI_10M_327", xl
 <details>
 
 <summary>**R/PLINK** ➡️ **STEP 3: QC for SNP MAF (IRRI_10M_327 →
-IRRI_1.9M_327)** </summary>
+IRRI_1.9M_327)**</summary>
 
 ``` r
 ##### PLINK COMMANDS #####  
@@ -301,7 +301,8 @@ convert the QC-passed SNP data in PLINK format (`.bed`, `.bim`, and
 
 <details>
 
-<summary>**PLINK** ➡️ **STEP1: Convert into VCF file**</summary>
+<summary>**PLINK** ➡️ **STEP1: Converting PLINK `bfile` into VCF
+file**</summary>
 
 ``` r
 ##### PLINK COMMANDS #####
@@ -315,8 +316,8 @@ convert the QC-passed SNP data in PLINK format (`.bed`, `.bim`, and
 
 <details>
 
-<summary>**R** ➡️ **STEP2: Convert into HapMap file and store in RDS
-format**</summary>
+<summary>**R** ➡️ **STEP2: Converting VCF into HapMap file and store in
+RDS format**</summary>
 
 ``` r
 ##### R CODES #####

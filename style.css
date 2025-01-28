@@ -40,3 +40,10 @@ pre code {
 .rmdwarning {
   background-image: url("images/warning.png");
 }
+
+.highlight-A {
+  color: white;
+  background-color: rgba(42, 130, 165, 0.228);
+  padding: 2px 4px;
+  border-radius: 3px;
+}

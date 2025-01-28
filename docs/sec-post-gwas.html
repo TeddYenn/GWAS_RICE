@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>4 Post-GWAS | GWAS Tutorial</title>
 <meta name="author" content="Yen-Hsiang (Teddy) Huang">
-<meta name="description" content="Under Construction… Identify the Genomic Region Associated With Seed Germination Under Aerobic Condition Use the significant SNPs detected by FarmCPU or BLINK to pinpoint regions associated with...">
+<meta name="description" content="This chapter will delve into post-GWAS analyses that further dissect and validate the significant associations identified in the GWAS. Potential steps include fine-mapping of loci, candidate gene...">
 <meta name="generator" content="bookdown 0.40 with bs4_book()">
 <meta property="og:title" content="4 Post-GWAS | GWAS Tutorial">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://github.com/TeddYenn/GWAS_RICE/sec-post-gwas.html">
 <meta property="og:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
-<meta property="og:description" content="Under Construction… Identify the Genomic Region Associated With Seed Germination Under Aerobic Condition Use the significant SNPs detected by FarmCPU or BLINK to pinpoint regions associated with...">
+<meta property="og:description" content="This chapter will delve into post-GWAS analyses that further dissect and validate the significant associations identified in the GWAS. Potential steps include fine-mapping of loci, candidate gene...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4 Post-GWAS | GWAS Tutorial">
-<meta name="twitter:description" content="Under Construction… Identify the Genomic Region Associated With Seed Germination Under Aerobic Condition Use the significant SNPs detected by FarmCPU or BLINK to pinpoint regions associated with...">
+<meta name="twitter:description" content="This chapter will delve into post-GWAS analyses that further dissect and validate the significant associations identified in the GWAS. Potential steps include fine-mapping of loci, candidate gene...">
 <meta name="twitter:image" content="https://github.com/TeddYenn/GWAS_RICE/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -69,73 +69,235 @@
 <h1>
 <span class="header-section-number">4</span> Post-GWAS<a class="anchor" aria-label="anchor" href="#sec-post-gwas"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>Under Construction…</strong></p>
-<ol style="list-style-type: decimal">
-<li>
-<p><strong>Identify the Genomic Region Associated With Seed Germination Under
-Aerobic Condition</strong></p>
-<ul>
-<li><p>Use the significant SNPs detected by FarmCPU or BLINK to
-pinpoint regions associated with seed germination. Also,
-consider the linkage disequilibrium (LD) decay rate in
-population to define the size of the candidate genomic region
-around each significant SNP.</p></li>
-<li><p>Examine local LD structure (e.g., haplotype blocks) to ensure
-the identified region is accurately confined to areas of strong
-linkage.</p></li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p><strong>Explore the Candidate Genomic Region:</strong> Use external resources,
-databases, and literature to identify known genes, QTLs, or
-functional annotations within these regions.</p></li>
-<li>
-<p><strong>Clustering Analysis</strong></p>
-<ul>
-<li><p>Based on the allele calls (e.g., favorable vs. unfavorable) in
-the candidate region, cluster samples into groups or
-subpopulations.</p></li>
-<li><p>Compare germination rate across clusters to confirm whether
-certain haplotypes correlate with improved aerobic germination.</p></li>
-<li><p>Use PCA or other multivariate methods to visualize genetic
-relationships among the samples and confirm that the clustering
-aligns with the significant SNP variation.</p></li>
-</ul>
-</li>
-<li><p><strong>Identify Favorable Alleles:</strong> Determine the effect size of each
-significant SNP or haplotype and whether it is associated with
-higher germination under aerobic conditions.</p></li>
-</ul>
-<div class="inline-figure"><img src="images/Fig.%205.jpg" width="1000"></div>
-<div class="inline-figure"><img src="images/Fig.%206.jpg" width="1000"></div>
-<div class="inline-figure"><img src="images/Fig.%207.jpg" width="1000"></div>
-<div id="aaa" class="section level2" number="4.1">
-<h2>
-<span class="header-section-number">4.1</span> <strong>aaa</strong><a class="anchor" aria-label="anchor" href="#aaa"><i class="fas fa-link"></i></a>
-</h2>
-<p>the</p>
 <div class="rmdtip">
 <p>
-The
+This chapter will delve into post-GWAS analyses that further dissect
+and validate the significant associations identified in the GWAS.
+Potential steps include fine-mapping of loci, candidate gene
+exploration, functional annotation, and predictive modeling. These
+complementary investigations aim to clarify the biological relevance of
+the discovered markers and move us closer to practical applications in
+breeding or further research.
 </p>
 </div>
-<div class="rmdnote">
-<p>
-The
-</p>
-</div>
-<p><strong>Step 1</strong></p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">##### R CODES #####  </span></span>
-<span><span class="va">vv</span></span></code></pre></div>
-</div>
-<div id="bb" class="section level2" number="4.2">
+<p><strong>Three significant SNPs based on BLINK model with <code>PCA.total = 5</code>:</strong></p>
+<ul>
+<li><p><strong>Chr03: 17005606 (SNP ID: 96208338)</strong></p></li>
+<li><p><strong>Chr03: 32521809 (SNP ID: 111729982)</strong></p></li>
+<li><p><strong>Chr10: 15162418 (SNP ID: 308650519)</strong></p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Use the significant SNPs detected by BLINK with <code>PCA.total = 5</code> to
+pinpoint regions associated with seed germination.</p></li>
+<li><p>Also, consider the linkage disequilibrium (LD) decay rate in
+population to define the size of the candidate genomic region around
+each significant SNP. <strong>-&gt; <a href="https://teddyenn.github.io/GWAS_RICE/sec-extra.html#linkage-disequilibrium-ld-decay-across-genome">Click
+Here!</a></strong></p></li>
+<li><p>Examine local LD structure (e.g., haplotype blocks) to ensure the
+identified region is accurately confined to areas of strong linkage.</p></li>
+<li><p>Use external resources, databases, and literature to explore known
+genes, QTLs, or functional annotations within these candidate
+genomic region.</p></li>
+<li><p>Determine the favorable alleles of each significant SNP or haplotype
+and whether it is associated with higher germination under aerobic
+conditions.</p></li>
+</ol>
+<div id="chr03-17005606" class="section level2" number="4.1">
 <h2>
-<span class="header-section-number">4.2</span> <strong>bb</strong><a class="anchor" aria-label="anchor" href="#bb"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1</span> <strong>Chr03: 17005606</strong><a class="anchor" aria-label="anchor" href="#chr03-17005606"><i class="fas fa-link"></i></a>
 </h2>
+<div class="inline-figure"><img src="images/clipboard-3995074238.png" width="600"></div>
+<ul>
+<li><p>The plot displays the candidate region within 200 Kb (0.2Mb)
+upstream or downstream of significant SNPs (Chr03: 17005606).</p></li>
+<li><p>The <em>p</em>-values based on the BLINK model with <code>PCA.total = 5</code>.</p></li>
+<li><p>The color of each SNP reflects its LD (<em>r</em><sup>2</sup>) value with the peak
+SNP.</p></li>
+</ul>
+<details><summary><strong>PLINK</strong> ➡️ <strong>STEP 1: Calculating Pairwise LD (r²) around the
+Peak SNP</strong>
+</summary><div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="sec-post-gwas.html#cb36-1" tabindex="-1"></a><span class="do">##### PLINK COMMANDS #####     </span></span>
+<span id="cb36-2"><a href="sec-post-gwas.html#cb36-2" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="sec-post-gwas.html#cb36-3" tabindex="-1"></a><span class="co"># Change your path into the directory of the 'IRRI_1.9M_327'   </span></span>
+<span id="cb36-4"><a href="sec-post-gwas.html#cb36-4" tabindex="-1"></a>cd ...your file path...  </span>
+<span id="cb36-5"><a href="sec-post-gwas.html#cb36-5" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="sec-post-gwas.html#cb36-6" tabindex="-1"></a><span class="co"># Creat a "Peak_SNP_96208338.txt" file in your path, this txt file only contains the peak SNP ID "96208338".   </span></span>
+<span id="cb36-7"><a href="sec-post-gwas.html#cb36-7" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="sec-post-gwas.html#cb36-8" tabindex="-1"></a><span class="co"># Copy this SNP ID -&gt; 96208338  </span></span>
+<span id="cb36-9"><a href="sec-post-gwas.html#cb36-9" tabindex="-1"></a><span class="co"># Paste in the -&gt; "Peak_SNP_96208338.txt"  </span></span>
+<span id="cb36-10"><a href="sec-post-gwas.html#cb36-10" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="sec-post-gwas.html#cb36-11" tabindex="-1"></a><span class="co"># Calculating Pairwise LD (r²) around the Peak SNP </span></span>
+<span id="cb36-12"><a href="sec-post-gwas.html#cb36-12" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_1<span class="fl">.9</span>M_327 <span class="sc">--</span>set<span class="sc">-</span>hh<span class="sc">-</span>missing <span class="sc">--</span>r2 <span class="sc">--</span>ld<span class="sc">-</span>snp<span class="sc">-</span>list Peak_SNP_96208338.txt <span class="sc">--</span>ld<span class="sc">-</span>window<span class="sc">-</span>r2 <span class="dv">0</span> <span class="sc">--</span>ld<span class="sc">-</span>window <span class="dv">99999</span> <span class="sc">--</span>ld<span class="sc">-</span>window<span class="sc">-</span>kb <span class="dv">2000</span> <span class="sc">--</span>out SNP_96208338_LD </span>
+<span id="cb36-13"><a href="sec-post-gwas.html#cb36-13" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="sec-post-gwas.html#cb36-14" tabindex="-1"></a><span class="co"># --set-hh-missing: Converts any genotypes flagged as "heterozygous haploid (hh)" into missing genotypes.  </span></span>
+<span id="cb36-15"><a href="sec-post-gwas.html#cb36-15" tabindex="-1"></a><span class="co"># --r2: Tells PLINK to compute the pairwise linkage disequilibrium metric r² for the specified SNP(s).  </span></span>
+<span id="cb36-16"><a href="sec-post-gwas.html#cb36-16" tabindex="-1"></a><span class="co"># --ld-snp-list Peak_SNP_96208338.txt: Reads in a file containing a list of SNP IDs (in this case, it contains the single peak SNP ID 96208338). PLINK will calculate LD between the listed SNP(s) and all other SNPs within the specified windows.  </span></span>
+<span id="cb36-17"><a href="sec-post-gwas.html#cb36-17" tabindex="-1"></a><span class="co"># --ld-window-r2 0: Sets the minimum r² threshold to "0", meaning no SNPs will be excluded based on r². Essentially, all pairwise LD calculations with the target SNP is performed.  </span></span>
+<span id="cb36-18"><a href="sec-post-gwas.html#cb36-18" tabindex="-1"></a><span class="co"># --ld-window 99999: Defines the maximum number of SNPs (on each side of the target SNP) to include in the LD calculation. Using a very large number "99999" effectively removes any SNP-count-based restriction.  </span></span>
+<span id="cb36-19"><a href="sec-post-gwas.html#cb36-19" tabindex="-1"></a><span class="co"># --ld-window-kb 2000: Sets the genomic window size to "2000 kb" around the target SNP. Only SNPs within ±2000 kb of the peak SNP will be considered in the LD calculation. </span></span>
+<span id="cb36-20"><a href="sec-post-gwas.html#cb36-20" tabindex="-1"></a><span class="co"># --out SNP_96208338_LD: Specifies the output file prefix. PLINK will produce output files (e.g., SNP_96208338_LD.ld) containing LD statistics.</span></span></code></pre></div>
+<hr></details><details><summary><strong>PLINK</strong> ➡️ <strong>STEP 2: Extracting a Windowed Subset of
+Genotypes around the SNP</strong>
+</summary><div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="sec-post-gwas.html#cb37-1" tabindex="-1"></a><span class="do">##### PLINK COMMANDS #####   </span></span>
+<span id="cb37-2"><a href="sec-post-gwas.html#cb37-2" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="sec-post-gwas.html#cb37-3" tabindex="-1"></a><span class="co"># Change your path into the directory of the 'IRRI_1.9M_327'   </span></span>
+<span id="cb37-4"><a href="sec-post-gwas.html#cb37-4" tabindex="-1"></a>cd ...your file path...  </span>
+<span id="cb37-5"><a href="sec-post-gwas.html#cb37-5" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="sec-post-gwas.html#cb37-6" tabindex="-1"></a>.<span class="sc">/</span>plink <span class="sc">--</span>bfile IRRI_1<span class="fl">.9</span>M_327 <span class="sc">--</span>snp <span class="dv">96208338</span> <span class="sc">--</span>window <span class="dv">4000</span> <span class="sc">--</span>make<span class="sc">-</span>bed <span class="sc">--</span>noweb <span class="sc">--</span>allow<span class="sc">-</span>no<span class="sc">-</span>sex <span class="sc">--</span>out IRRI_96208338_327</span>
+<span id="cb37-7"><a href="sec-post-gwas.html#cb37-7" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="sec-post-gwas.html#cb37-8" tabindex="-1"></a><span class="co"># --snp 96208338: Specifies the central SNP around which a window of data will be extracted.</span></span>
+<span id="cb37-9"><a href="sec-post-gwas.html#cb37-9" tabindex="-1"></a><span class="co"># --window 4000: Defines a ±2000 kb window on each side of the SNP (total of "4000" kb) to be extracted for the new dataset.</span></span>
+<span id="cb37-10"><a href="sec-post-gwas.html#cb37-10" tabindex="-1"></a><span class="co"># --out IRRI_96208338_327: Sets the prefix for the output files generated by this command (e.g., IRRI_96208338_327.bed, .bim, .fam).</span></span></code></pre></div>
+<hr></details><details><summary><strong>R ➡️ STEP 3: Fine-mapping and Regional Association
+Analysis</strong>
+</summary><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">##### R CODES #####  </span></span>
+<span></span>
+<span><span class="co"># -&gt; Create a folder (e.g. Chr03_17005606)</span></span>
+<span></span>
+<span><span class="co"># Set the working directory </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"...your file path.../Chr03_17005606"</span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="co"># Put the GWAS, LD, and windowed subset results into this folder </span></span>
+<span><span class="co"># I use the GWAS result based on Blink (PC=5)</span></span>
+<span><span class="co"># -&gt; GAPIT.Association.Filter_GWAS_results.csv</span></span>
+<span><span class="co"># -&gt; SNP_96208338_LD.ld</span></span>
+<span><span class="co"># -&gt; IRRI_96208338_327.bed, .bim, .fam</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Import GWAS results (BLINK with PCA.total=5)</span></span>
+<span><span class="va">Blink_PC5</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"GAPIT.Association.GWAS_Results.BLINK.Control_AG_14DAS.csv"</span><span class="op">)</span> </span>
+<span><span class="va">Blink_PC5</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">Blink_PC5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Import subset region</span></span>
+<span><span class="va">Region_96208338</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"IRRI_96208338_327.bim"</span><span class="op">)</span></span>
+<span><span class="va">Region_96208338</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">Region_96208338</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">Region_96208338</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Chr"</span>, <span class="st">"ID"</span>, <span class="st">"Pos"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Import LD file</span></span>
+<span><span class="va">LD_96208338</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">"SNP_96208338_LD.ld"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/pkg/vcfR/man/vcfR-method.html">head</a></span><span class="op">(</span><span class="va">LD_96208338</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">LD_96208338</span><span class="op">)</span></span>
+<span><span class="va">LD_96208338</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">LD_96208338</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Selecting common SNPs and extracting associated values</span></span>
+<span><span class="va">SNP</span> <span class="op">=</span> <span class="fu"><a href="https://generics.r-lib.org/reference/setops.html">intersect</a></span><span class="op">(</span><span class="va">Region_96208338</span><span class="op">$</span><span class="va">ID</span>, <span class="va">LD_96208338</span><span class="op">$</span><span class="va">SNP_B</span><span class="op">)</span></span>
+<span><span class="va">LD_value</span> <span class="op">=</span> <span class="va">LD_96208338</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">LD_96208338</span><span class="op">$</span><span class="va">SNP_B</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">SNP</span><span class="op">)</span>, <span class="fl">7</span><span class="op">]</span></span>
+<span><span class="va">P_value</span> <span class="op">=</span> <span class="va">Blink_PC5</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Blink_PC5</span><span class="op">$</span><span class="va">SNP</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">SNP</span><span class="op">)</span>, <span class="fl">4</span><span class="op">]</span></span>
+<span><span class="va">MAF_value</span> <span class="op">=</span> <span class="va">Blink_PC5</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Blink_PC5</span><span class="op">$</span><span class="va">SNP</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">SNP</span><span class="op">)</span>, <span class="fl">5</span><span class="op">]</span></span>
+<span><span class="va">BHadj_P_value</span> <span class="op">=</span> <span class="va">Blink_PC5</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Blink_PC5</span><span class="op">$</span><span class="va">SNP</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">SNP</span><span class="op">)</span>, <span class="fl">7</span><span class="op">]</span></span>
+<span><span class="va">Effect_value</span>  <span class="op">=</span> <span class="va">Blink_PC5</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Blink_PC5</span><span class="op">$</span><span class="va">SNP</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">SNP</span><span class="op">)</span>, <span class="fl">8</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Data wrangling for the region of interest</span></span>
+<span><span class="va">Chr03_17005606</span> <span class="op">=</span> <span class="va">Region_96208338</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Light <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Pos</span> <span class="op">&gt;=</span> <span class="fl">17005606</span><span class="op">-</span><span class="fl">200000</span> <span class="op">&amp;</span> <span class="va">Pos</span> <span class="op">&lt;=</span> <span class="fl">17005606</span><span class="op">+</span><span class="fl">200000</span>, <span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>LD <span class="op">=</span> <span class="va">LD_value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>pvalue <span class="op">=</span> <span class="va">P_value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>MAF <span class="op">=</span> <span class="va">MAF_value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>adjP <span class="op">=</span> <span class="va">BHadj_P_value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Effect <span class="op">=</span> <span class="va">Effect_value</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plotting with ggplot2</span></span>
+<span><span class="va">ggplot_obj</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">Chr03_17005606</span>, <span class="va">LD</span> <span class="op">&lt;</span> <span class="fl">0.8</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="va">Pos</span>,</span>
+<span>      y <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">pvalue</span><span class="op">)</span>,</span>
+<span>      color <span class="op">=</span> <span class="va">LD</span>,</span>
+<span>      text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>        <span class="st">"Pos: "</span>, <span class="va">Pos</span>,</span>
+<span>        <span class="st">"\n-log10(p): "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">pvalue</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\n-log10(adj. p): "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">adjP</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\nLD: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">LD</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\nMAF: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">MAF</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\nEffect: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Effect</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    alpha <span class="op">=</span> <span class="fl">0.6</span>, size <span class="op">=</span> <span class="fl">2</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">Chr03_17005606</span>, <span class="va">LD</span> <span class="op">&gt;=</span> <span class="fl">0.8</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="va">Pos</span>,</span>
+<span>      y <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">pvalue</span><span class="op">)</span>,</span>
+<span>      color <span class="op">=</span> <span class="va">LD</span>,</span>
+<span>      text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>        <span class="st">"Pos: "</span>, <span class="va">Pos</span>,</span>
+<span>        <span class="st">"\n-log10(p): "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">pvalue</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\n-log10(adj. p): "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">adjP</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\nLD: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">LD</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\nMAF: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">MAF</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>        <span class="st">"\nEffect: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Effect</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    alpha <span class="op">=</span> <span class="fl">0.8</span>, size <span class="op">=</span> <span class="fl">2</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_color_gradient</a></span><span class="op">(</span></span>
+<span>    low <span class="op">=</span> <span class="st">"#6798d4"</span>,</span>
+<span>    high <span class="op">=</span> <span class="st">"#e3393a"</span>,</span>
+<span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span><span class="op">)</span>,</span>
+<span>    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.0"</span>, <span class="st">"0.5"</span>, <span class="st">"1.0"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span></span>
+<span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15000000</span>, <span class="fl">16000000</span>, <span class="fl">17000000</span>, <span class="fl">18000000</span>, <span class="fl">19000000</span><span class="op">)</span>,</span>
+<span>    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1.5"</span>, <span class="st">"1.6"</span>, <span class="st">"1.7"</span>, <span class="st">"1.8"</span>, <span class="st">"1.9"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">13</span><span class="op">)</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span>, <span class="fl">8</span>, <span class="fl">12</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Position (Mb)"</span>, y <span class="op">=</span> <span class="st">"-log(p)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_colourbar.html">guide_colorbar</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">r</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>,</span>
+<span>    title.position <span class="op">=</span> <span class="st">"top"</span>,</span>
+<span>    title.hjust <span class="op">=</span> <span class="fl">0.5</span></span>
+<span>  <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>    legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span><span class="op">)</span>,</span>
+<span>    legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span>,</span>
+<span>    legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.95</span>, <span class="fl">0.95</span><span class="op">)</span>,</span>
+<span>    legend.justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"right"</span>, <span class="st">"top"</span><span class="op">)</span>,</span>
+<span>    legend.direction <span class="op">=</span> <span class="st">"horizontal"</span>,</span>
+<span>    legend.box.just <span class="op">=</span> <span class="st">"top"</span>,</span>
+<span>    legend.margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">4</span><span class="op">)</span>,</span>
+<span>    plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span><span class="op">)</span>,</span>
+<span>    axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span><span class="op">)</span>,</span>
+<span>    axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">18</span><span class="op">)</span>,</span>
+<span>    axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">18</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="va">ggplot_obj</span> <span class="co"># A6</span></span>
+<span></span>
+<span><span class="co"># Plotting with interactive Plotly visualization</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/plotly/man/ggplotly.html">ggplotly</a></span><span class="op">(</span><span class="va">ggplot_obj</span>, tooltip <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span></span></code></pre></div>
+<hr></details><div class="inline-figure"><img src="images/Screenshot%202025-01-28%20142211.png" width="400"></div>
+<ul>
+<li><p>The peak SNP (Chr03: 17005606)highly correlated (<em>r</em><sup>2</sup>&gt;0.8) with
+the markers within 1.675 to 1.710 Mb.</p></li>
+<li><p>13 genes within these region (1.675 to 1.710 Mb).
+<a href="https://rice.uga.edu/jb2/?session=share-LvzOvIFUlH&amp;password=dz7dn" class="uri">https://rice.uga.edu/jb2/?session=share-LvzOvIFUlH&amp;password=dz7dn</a></p></li>
+<li><p><strong>Promising gene:
+<a href="https://rice.uga.edu/cgi-bin/ORF_infopage.cgi?orf=LOC_Os03g29460.1"><em>LOC_Os03g29460</em></a>
+(Chr3:16,787,178..16,787,968) with high gene expression in mature
+seed under hypoxia.</strong></p></li>
+</ul>
+<div class="inline-figure"><img src="images/clipboard-457345307.png" width="600"></div>
+</div>
+<div id="chr03-32521809" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> <strong>Chr03: 32521809</strong><a class="anchor" aria-label="anchor" href="#chr03-32521809"><i class="fas fa-link"></i></a>
+</h2>
+<p>aaa</p>
+</div>
+<div id="chr10-15162418" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> <strong>Chr10: 15162418</strong><a class="anchor" aria-label="anchor" href="#chr10-15162418"><i class="fas fa-link"></i></a>
+</h2>
+<p>aaa</p>
 
 </div>
 </div>
@@ -146,8 +308,9 @@ The
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#sec-post-gwas"><span class="header-section-number">4</span> Post-GWAS</a></li>
-<li><a class="nav-link" href="#aaa"><span class="header-section-number">4.1</span> aaa</a></li>
-<li><a class="nav-link" href="#bb"><span class="header-section-number">4.2</span> bb</a></li>
+<li><a class="nav-link" href="#chr03-17005606"><span class="header-section-number">4.1</span> Chr03: 17005606</a></li>
+<li><a class="nav-link" href="#chr03-32521809"><span class="header-section-number">4.2</span> Chr03: 32521809</a></li>
+<li><a class="nav-link" href="#chr10-15162418"><span class="header-section-number">4.3</span> Chr10: 15162418</a></li>
 </ul>
 
       <div class="book-extra">
@@ -165,7 +328,7 @@ The
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-27.</p>
+    <p>"<strong>GWAS Tutorial</strong>: For Anaerobic Germination in Rice" was written by Yen-Hsiang (Teddy) Huang. It was last built on 2025-01-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

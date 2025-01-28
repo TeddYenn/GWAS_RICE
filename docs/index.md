@@ -2,7 +2,7 @@
 title: "GWAS Tutorial"
 subtitle: "For Anaerobic Germination in Rice"
 author: "Yen-Hsiang (Teddy) Huang"
-date: "2025-01-27"
+date: "2025-01-28"
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: bookdown::bs4_book
@@ -61,7 +61,7 @@ absolute beginners, we’ve also included an introductory section on
 [R](https://www.r-project.org/),
 [RStudio](https://posit.co/download/rstudio-desktop/), and
 [PLINK](https://www.cog-genomics.org/plink/). **-\> [Click
-Here!](https://teddyenn.github.io/GWAS_RICE/preface.html#tutorial-for-r-rstudio-plink)**
+Here!](https://teddyenn.github.io/GWAS_RICE/preface.html#sec-tutorial-for-r-rstudio--plink)**
 
 This book was written in [RStudio](http://www.rstudio.com/ide/) using
 [bookdown](http://bookdown.org/). The
@@ -105,7 +105,8 @@ results.
 
 <details>
 
-<summary>**How to download the R & RStudio**</summary>
+<summary>[**How to download the R &
+RStudio**]{style="color: white; background-color: grey; padding: 2px 4px; border-radius: 3px;"}.</summary>
 
 <div class="rmdtip">
 <p>For TAMU HPRC users, you don’t need to download RStudio. There is the
@@ -179,7 +180,8 @@ RStudio has four main panels:
 
 <details>
 
-<summary>**How to download the R packages**</summary>
+<summary>[**How to download the R
+packages**]{style="color: white; background-color: grey; padding: 2px 4px; border-radius: 3px;"}.</summary>
 
 **Step 1: Understand R Packages**
 
@@ -290,7 +292,8 @@ remove.packages("ggplot2")
 
 <details>
 
-<summary>**How to download and use PLINK** **on TAMU HPRC**</summary>
+<summary>[**How to download and use PLINK** **on TAMU
+HPRC**]{style="color: white; background-color: grey; padding: 2px 4px; border-radius: 3px;"}.</summary>
 
 **Step 1: Download the PLINK File**
 
